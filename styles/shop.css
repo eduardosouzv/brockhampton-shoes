@@ -1,0 +1,56 @@
+.name-shoe {
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+}
+.price-shoe {
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+}
+.shoes {
+  text-align: center;
+}
+.container-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 50px;
+}
+.container-items img {
+  width: 250px;
+  height: 250px;
+}
+.container-all {
+  display: flex;
+  gap: 150px;
+  margin-top: 60px;
+}
+.categories-name {
+  font-size: 25px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+}
+.container-all-categories {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 20px;
+  font-family: Inter, sans-serif;
+}
+.container-all-categories a {
+  text-decoration: none;
+  color: var(--text);
+}
+.container-pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+}
+.container-pagination a {
+  text-decoration: none;
+  color: var(--text);
+}
