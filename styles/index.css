@@ -1,0 +1,30 @@
+.banner {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  height: 500px;
+}
+
+.gallery {
+  background: #eee;
+  max-width: 1300px;
+}
+
+.gallery-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8c8;
+  counter-increment: gallery-cell;
+}
+
+.flickity-button {
+  display: none;
+}
+
+.carousel {
+  margin-top: 60px;
+  width: 100%;
+}

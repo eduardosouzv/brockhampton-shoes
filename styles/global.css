@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e7e7e7;
+}
+
+main {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+:root {
+  --text: #202020;
+  --white: #fff;
+  --bg-header: #f0f0f0;
+}
