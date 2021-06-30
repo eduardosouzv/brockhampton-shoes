@@ -2,7 +2,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   background-color: var(--bg-header);
 }
 
@@ -10,12 +9,19 @@ nav {
   color: var(--text);
   font-family: Inter, sans-serif;
   font-weight: 600;
+  transition: 3s;
+}
+
+.title:hover {
+  transform: rotateX(360deg);
+  transform: rotateY(-360deg);
+  transition: 3s;
+  cursor: default;
 }
 
 .buttons a {
   color: var(--text);
   text-decoration: none;
-
   font-family: Inter, sans-serif;
 }
 
