@@ -1,0 +1,6 @@
+# Enviroment
+.env
+
+# Packages
+composer.phar
+/vendor/
