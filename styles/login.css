@@ -1,0 +1,108 @@
+.overlay {
+  background: #f2f3f5cc;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #f0f0f0;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+}
+
+.header img {
+  width: 150px;
+  height: 150px;
+}
+
+.close {
+  margin-top: 24px;
+  cursor: pointer;
+  color: #393939;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+
+  width: 70%;
+}
+
+.container form input {
+  font-family: Roboto, sans-serif;
+  color: var(--text);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 4px;
+  box-sizing: border-box;
+}
+
+.container form label {
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
+
+.footer_buttons {
+  display: flex;
+  margin-top: 3px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container .login_button {
+  background: var(--text);
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+}
+.container .create_account {
+  color: #393939;
+  background: none;
+  border: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.input_password,
+.input_user {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
