@@ -1,0 +1,106 @@
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.container form {
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: var(--bg-header);
+}
+
+.container img {
+  width: 300px;
+}
+
+.container .title-box {
+  display: flex;
+  justify-content: center;
+}
+
+.container .title-box p {
+  font-size: 24px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.container form input {
+  font-family: Roboto, sans-serif;
+  color: var(--text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 4px;
+  box-sizing: content-box;
+  margin: 0;
+}
+
+.container form input:focus {
+  outline-color: grey;
+}
+
+.container label {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register_button button {
+  background: var(--text);
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.register_button {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inline {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.inline .select_state {
+  display: grid;
+  font-family: Roboto, sans-serif;
+  color: grey;
+  background: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
