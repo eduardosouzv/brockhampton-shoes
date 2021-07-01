@@ -20,9 +20,9 @@
     <?php include "../components/header.php"; ?>
     <main>
         <?php include "../components/menu.php"; ?>
-        <div class="container-all">
-            <div class="container-all-categories">
-                <h2 class="categories-name">Categorias</h2>
+        <div class="container">
+            <div class="container_categories">
+                <h2 class="categories_name">Categorias</h2>
                 <a href="#">Todos</a>
                 <a href="#">Masculino</a>
                 <a href="#">Feminino</a>
@@ -30,40 +30,40 @@
                 <a href="#">Sportive</a>
                 <a href="#">Skate Shoes</a>
             </div>
-            <div class="container-all-products">
-                <div class="container-items">
-                    <div class="shoes">
+            <div class="container_products">
+                <div class="container_items">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
-                    <div class="shoes">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
-                    <div class="shoes">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
-                    <div class="shoes">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
-                    <div class="shoes">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
-                    <div class="shoes">
+                    <div class="shoes" onclick="">
                         <img src="../assets/products/shoe.jpg">
-                        <p class="name-shoe">AIR MAX 97</p>
-                        <p class="price-shoe">R$ 399,00</p>
+                        <p class="name_shoe">AIR MAX 97</p>
+                        <p class="price_shoe">R$ 399,00</p>
                     </div>
                 </div>
-                <div class="container-pagination">
+                <div class="container_pagination">
                     <a href="#"><i class="fas fa-arrow-left"></i></a>
                     <a href="#">1</a>
                     <a href="#">2</a>
