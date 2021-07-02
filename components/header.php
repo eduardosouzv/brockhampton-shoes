@@ -6,7 +6,7 @@
   </div>
 
   <div class="buttons">
-    <a href="#">Carrinho</a>
+    <a href="checkout.php">Carrinho</a>
     <a href="login.php">Login</a>
   </div>
 
