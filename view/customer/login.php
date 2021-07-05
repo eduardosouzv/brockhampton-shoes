@@ -8,25 +8,25 @@
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-  <link rel="icon" href="../assets/logo.png">
+  <link rel="icon" href="../../assets/logo.png">
 
-  <link rel="stylesheet" href="../styles/global.css">
-  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="../../styles/index.css">
 
-  <link rel="stylesheet" href="../styles/login.css">
-  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="../../styles/login.css">
+  <link rel="stylesheet" href="../../styles/pages/customer/login.css">
   <title>Inicio | BROCKHAMPTON</title>
 </head>
 
 <body>
-  <?php include "../components/header.php"; ?>
+  <?php include "../../components/customer/header.php"; ?>
   <main>
-    <?php include "../components/menu.php"; ?>
+    <?php include "../../components/customer/menu.php"; ?>
 
     <div class="overlay" style="display: flex;">
       <div class="container">
         <div class="header">
-          <img src="../assets/logo.png" alt="logo">
+          <img src="../../assets/logo.png" alt="logo">
         </div>
         <form>
           <div class="input_user">
@@ -49,7 +49,7 @@
           </div>
         </form>
 
-        <a href="/index.php" class="close">Voltar para pagina inicial</a>
+        <a href="index.php" class="close">Voltar para pagina inicial</a>
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../styles/menu.css">
+<link rel="stylesheet" href="../../styles/components/customer/menu.css">
 
 <div class="menu">
   <a href="index.php">Inicio</a>

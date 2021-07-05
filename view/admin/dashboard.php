@@ -11,7 +11,7 @@
   <link rel="icon" href="../assets/logo.png">
 
   <link rel="stylesheet" href="../../styles/global.css">
-  <link rel="stylesheet" href="../../styles/admin/dashboard.css">
+  <link rel="stylesheet" href="../../styles/pages/admin/dashboard.css">
 
   <title>Dashboard | BROCKHAMPTON</title>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
