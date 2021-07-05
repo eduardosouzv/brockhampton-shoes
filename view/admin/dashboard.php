@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <?php include "../../components/admin/menu.php"; ?>
+  <?php include "./components/admin/menu.php"; ?>
 </body>
 
 </html>

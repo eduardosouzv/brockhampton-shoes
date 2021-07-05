@@ -8,48 +8,46 @@
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-  <link rel="icon" href="../../assets/logo.png">
+  <link rel="icon" href="./assets/logo.png">
 
-  <link rel="stylesheet" href="../../styles/global.css">
-  <link rel="stylesheet" href="../../styles/index.css">
+  <link rel="stylesheet" href="./styles/global.css">
 
-  <link rel="stylesheet" href="../../styles/login.css">
-  <link rel="stylesheet" href="../../styles/pages/customer/login.css">
+  <link rel="stylesheet" href="./styles/pages/customer/login.css">
   <title>Inicio | BROCKHAMPTON</title>
 </head>
 
 <body>
-  <?php include "../../components/customer/header.php"; ?>
+  <?php include "./components/customer/header.php"; ?>
   <main>
-    <?php include "../../components/customer/menu.php"; ?>
+    <?php include "./components/customer/menu.php"; ?>
 
     <div class="overlay" style="display: flex;">
       <div class="container">
         <div class="header">
-          <img src="../../assets/logo.png" alt="logo">
+          <img src="./assets/logo.png" alt="logo">
         </div>
         <form>
           <div class="input_user">
             <label>Usuario</label>
-            <input ref="{userInput}" type="text" />
+            <input type="text" />
           </div>
 
           <div class="input_password">
             <label>Senha</label>
-            <input ref="{passwordInput}" type="password" />
+            <input type="password" />
           </div>
 
           <div class="footer_buttons">
-            <button class="create_account">
+            <a href="/register" class="create_account">
               Cadastre-se Aqui
-            </button>
+            </a>
             <button class="login_button">
               Logar
             </button>
           </div>
         </form>
 
-        <a href="index.php" class="close">Voltar para pagina inicial</a>
+        <a href="/" class="close">Voltar para pagina inicial</a>
       </div>
     </div>
 

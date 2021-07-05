@@ -8,18 +8,18 @@
 
    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-   <link rel="icon" href="../../assets/logo.png">
+   <link rel="icon" href="./assets/logo.png">
 
-   <link rel="stylesheet" href="../../styles/global.css">
-   <link rel="stylesheet" href="../../styles/pages/customer/register.css">
+   <link rel="stylesheet" href="./styles/global.css">
+   <link rel="stylesheet" href="./styles/pages/customer/register.css">
 
    <title>Registrar | BROCKHAMPTON</title>
 </head>
 
 <body>
-   <?php include "../../components/customer/header.php"; ?>
+   <?php include "./components/customer/header.php"; ?>
    <main>
-      <?php include "../../components/customer/menu.php"; ?>
+      <?php include "./components/customer/menu.php"; ?>
       <div class="container">
          <img src="https://i.imgur.com/bI0KYdg_d.webp?maxwidth=760&fidelity=grand" alt="banner">
          <form>
