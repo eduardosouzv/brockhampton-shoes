@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../styles/components/customer/header.css">
+<link rel="stylesheet" href="./styles/components/customer/header.css">
 
 <nav>
   <div>
@@ -6,8 +6,8 @@
   </div>
 
   <div class="buttons">
-    <a href="checkout.php">Carrinho</a>
-    <a href="login.php">Login</a>
+    <a href="/checkout">Carrinho</a>
+    <a href="/login">Login</a>
   </div>
 
 </nav>

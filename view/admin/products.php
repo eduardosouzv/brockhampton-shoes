@@ -20,7 +20,7 @@
 <body>
   <div class="page_container">
     <div>
-      <?php include "../../components/admin/menu.php"; ?>
+      <?php include "./components/admin/menu.php"; ?>
     </div>
     <main>
       <div>
