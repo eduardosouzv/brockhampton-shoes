@@ -2,7 +2,7 @@
 
 require './get_env.php';
 
-$redirect = 'view/index.php';
+$redirect = './view/customer/index.php';
 
 header('Location: ' . $redirect);
 die();

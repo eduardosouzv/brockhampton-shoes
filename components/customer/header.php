@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../styles/header.css">
+<link rel="stylesheet" href="../../styles/components/customer/header.css">
 
 <nav>
   <div>
