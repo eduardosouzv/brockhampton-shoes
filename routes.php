@@ -21,6 +21,9 @@ switch ($request) {
   case '/checkout':
     require './view/customer/checkout.php';
     break;
+  case '/about':
+    require './view/customer/about.php';
+    break;
 
     // admin routes
   case '/admin/dashboard':
