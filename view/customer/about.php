@@ -20,8 +20,10 @@
     <?php include "./components/customer/header.php"; ?>
     <main>
         <?php include "./components/customer/menu.php"; ?>
-        <div class="container">
-            <h1>SOBRE NÓS</h1>
+        <div class="container_about">
+            <div>
+                <h1>SOBRE NÓS</h1>
+            </div>
             <div class="content_about">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Pharetra diam sit amet
