@@ -6,15 +6,15 @@
     <span>BROCKHAMPTON</span>
   </div>
   <div class="menu">
-    <a href="#">
+    <a href="/admin/dashboard">
       <i class="far fa-chart-bar"></i>
       <span>Dashboard</span>
     </a>
-    <a href="#">
+    <a href="/admin/products">
       <i class="fas fa-shopping-cart"></i>
       <span>Produtos</span>
     </a>
-    <a href="#">
+    <a href="/admin/orders">
       <i class="fas fa-box-open"></i>
       <span>Pedidos</span>
     </a>

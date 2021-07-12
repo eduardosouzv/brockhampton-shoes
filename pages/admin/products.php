@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../../styles/pages/admin/products.css">
 
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <title>Dashboard | BROCKHAMPTON</title>
+  <title>Produtos | BROCKHAMPTON</title>
 </head>
 
 <body>

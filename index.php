@@ -32,6 +32,9 @@ switch ($request) {
   case '/admin/products':
     require './pages/admin/products.php';
     break;
+  case '/admin/orders':
+    require './pages/admin/orders.php';
+    break;
   default:
     echo '404';
     break;
