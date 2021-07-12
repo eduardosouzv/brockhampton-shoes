@@ -31,170 +31,72 @@
 
             <div class="orders_list">
                 <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <p class="number">1</p>
-                    <p class="status">PROCESSANDO</p>
-                    <div class="products">
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                        <p class="product">AIR MAX 399</p>
-                    </div>
-                    <p class="name">Eduardo Schulz</p>
-                    <div class="address">
-                        <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-                    </div>
-                    <p class="total">R$3.000</p>
-                    <div class="check_status">
-                        <i class="fas fa-check-circle"></i>
+                    <h1>Pedido nº1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <button onclick="">ENTREGUE</button>
+                        <button id="look">VER PEDIDO</button>
                     </div>
                 </div>
 
             </div>
         </main>
     </div>
+    <div id="overlay" class="modal hidden visuallyHidden">
+        <div class="content">
+            <div class="order">
+                <div class="close_button">
+                    <button id="close" class="close">&times;</button>
+                </div>
+                <div class="information">
+                    <h1>Pedido nº1</h1>
+                    <h2>Nome:</h2>
+                    <p>Eduardo Schulz</p>
+                    <h2>Produtos:</h2>
+                    <div class="products">
+                        <div class="item">
+                            <img src="/assets/products/shoe.jpg">
+                            <p>AIRMAX 999</p>
+                            <p>48</p>
+                            <p>R$399,00</p>
+                        </div>
+                        <div class="item">
+                            <img src="/assets/products/shoe.jpg">
+                            <p>AIRMAX 999</p>
+                            <p>48</p>
+                            <p>R$399,00</p>
+                        </div>
+                    </div>
+                    <h2>Endereço:</h2>
+                    <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
+                    <h2>Total:</h2>
+                    <p>R$3.000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById('overlay');
+        var body = document.getElementsByTagName('body');
+        var container = document.getElementsByClassName('page_container');
+        var btnClose = document.getElementById("close");
+        var btnOpen = document.getElementById("look");
+
+        btnOpen.onclick = function() {
+            modal.className = "modal visuallyHidden";
+            setTimeout(function() {
+                container.className = "container blurred";
+                modal.className = "modal";
+            }, 100);
+            container.className = "modalOpen";
+        }
+
+        btnClose.onclick = function() {
+            modal.className = "modal hidden visuallyHidden";
+            container.className = "container";
+        }
+    </script>
 </body>
 
 </html>
