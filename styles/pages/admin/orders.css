@@ -4,46 +4,34 @@
 }
 .page_container .orders_list {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
   overflow: auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 10px;
-  gap: 50px;
-  width: 60vw;
-  align-content: flex-start;
   height: 80vh;
+  padding: 0 10px 0 0;
 }
 .page_container .orders_list .order {
-  display: flexbox;
-  border-radius: 5px;
-  padding: 12px;
-  border: 2px solid var(--text);
-  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  background: var(--bg-header);
+  width: 60vw;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
 }
 .page_container .orders_list .buttons {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 16px;
 }
-.page_container .orders_list .buttons button {
-  font-family: Inter, sans-serif;
-  color: var(--text);
-  font-size: 15px;
-  border: none;
-  background-color: var(--text);
-  color: var(--white);
-  text-decoration: none;
+.page_container .orders_list .buttons i {
+  font-size: 25px;
   cursor: pointer;
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
 }
 .page_container .orders_list .order p {
   font-size: 20px;
-  color: var(--text);
-}
-.page_container .orders_list .order h1 {
-  font-size: 25px;
   color: var(--text);
 }
 .modal {
@@ -64,33 +52,32 @@
 }
 .content {
   display: flex;
-  background-color: #fefefe;
+  background-color: var(--white);
   margin: auto;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 5px; 
   max-width: 600px;
   height: 600px;
   overflow: auto;
 }
-.order {
+.content .order {
   display: flex;
   flex-direction: column;
   font-family: Inter, sans-serif;
   font-size: 16px;
-  padding: 10px;
 }
-.information {
+.content .order .information {
   display: flex;
   flex-direction: column;
   overflow: auto;
-  padding: 12px;
+  padding: 0 10px 0 0;
 }
-.products {
+.content .information .products {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.products .item {
+.content .products .item {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -98,7 +85,7 @@
   padding: 8px;
   background: var(--bg-header);
 }
-.products img {
+.content .products img {
   width: 100px;
   height: 100px;
 }
@@ -113,13 +100,11 @@
 }
 .close_button {
   display: flex;
-  justify-content: flex-start;
 }
 .close {
   display: flex;
   font-family: Inter, sans-serif;
   border: none;
-  padding: 10px;
   font-size: 30px;
   text-transform: uppercase;
   color: var(--text);

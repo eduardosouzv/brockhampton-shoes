@@ -31,14 +31,76 @@
 
             <div class="orders_list">
                 <div class="order">
-                    <h1>Pedido nº1</h1>
+                    <h1>Nº 1</h1>
                     <p>Eduardo Schulz</p>
                     <p>PROCESSANDO</p>
                     <div class="buttons">
-                        <button onclick="">ENTREGUE</button>
-                        <button id="look">VER PEDIDO</button>
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
                     </div>
                 </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                <div class="order">
+                    <h1>Nº 1</h1>
+                    <p>Eduardo Schulz</p>
+                    <p>PROCESSANDO</p>
+                    <div class="buttons">
+                        <i class="far fa-check-circle"></i>
+                        <i class="fas fa-folder" id="look"></i>
+                    </div>
+                </div>
+
+                
 
             </div>
         </main>
@@ -50,7 +112,7 @@
                     <button id="close" class="close">&times;</button>
                 </div>
                 <div class="information">
-                    <h1>Pedido nº1</h1>
+                    <h1>Pedido Nº 1</h1>
                     <h2>Nome:</h2>
                     <p>Eduardo Schulz</p>
                     <h2>Produtos:</h2>
