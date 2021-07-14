@@ -73,4 +73,19 @@ class Product extends Connection
     $all_products->execute();
     return $all_products->fetchAll();
   }
+
+  public function delete($id)
+  {
+    $query = "DELETE FROM products WHERE id = :id";
+
+    $result = Connection::prepare($query);
+    $result->bindParam(':id', $id);
+
+    $result->execute();
+
+    http_response_code(201);
+    return [
+      "product deleted id" =>  $id,
+    ];
+  }
 }

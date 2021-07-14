@@ -32,6 +32,7 @@ class ProductController
       ];
     }
   }
+
   function createProduct($product_name, $product_description, $product_price, $product_size)
   {
     try {
@@ -43,6 +44,24 @@ class ProductController
       }
 
       return $product->createProduct($product_name, $product_description, $product_price, $product_size);
+    } catch (Exception $e) {
+      return [
+        "message" =>  $e->getMessage(),
+      ];
+    }
+  }
+
+  function delete($id)
+  {
+    try {
+      $product = new Product();
+
+      if (!isset($id)) {
+        http_response_code(404);
+        throw new Exception('id undefined');
+      }
+
+      return $product->delete($id);
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),
