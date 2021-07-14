@@ -68,8 +68,8 @@ class Product extends Connection
 
   public function findAll()
   {
-    $sql = "SELECT * FROM products";
-    $all_products = Connection::prepare($sql);
+    $query = "SELECT * FROM products";
+    $all_products = Connection::prepare($query);
     $all_products->execute();
     return $all_products->fetchAll();
   }
