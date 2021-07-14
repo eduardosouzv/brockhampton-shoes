@@ -4,10 +4,9 @@ include '../../../database/Connection.php';
 
 class Product extends Connection
 {
-  public function createProduct($product_name, $product_description, $product_price, $product_size)
+  private static function getSizeIDByName($name)
   {
-
-    $query_to_find_size_id = "SELECT * FROM sizes WHERE size_name =" . $product_size;
+    $query_to_find_size_id = "SELECT * FROM sizes WHERE size_name =" . $name;
     $found_size = Connection::prepare($query_to_find_size_id);
     $found_size->execute();
     $found_size = (array) $found_size->fetchAll()[0];
@@ -17,6 +16,13 @@ class Product extends Connection
       http_response_code(404);
       throw new Exception('size not found');
     }
+
+    return $product_size_id;
+  }
+
+  public function createProduct($product_name, $product_description, $product_price, $product_size)
+  {
+    $product_size_id = self::getSizeIDByName($product_size);
 
     $query = "INSERT INTO products (product_name, description,price, sizes_id)
     VALUES (:product_name, :product_description, :product_price, :product_size)";
@@ -37,16 +43,7 @@ class Product extends Connection
 
   public function editProduct($product_id, $product_name, $product_description, $product_price, $product_size)
   {
-    $query_to_find_size_id = "SELECT * FROM sizes WHERE size_name =" . $product_size;
-    $found_size = Connection::prepare($query_to_find_size_id);
-    $found_size->execute();
-    $found_size = (array) $found_size->fetchAll()[0];
-    $product_size_id = $found_size["id"];
-
-    if (!isset($product_size_id)) {
-      http_response_code(404);
-      throw new Exception('size not found');
-    }
+    $product_size_id = self::getSizeIDByName($product_size);
 
     $query = "UPDATE products SET product_name = :product_name, description= :product_description, price= :product_price, sizes_id= :product_size_id
     WHERE id = :product_id;";
