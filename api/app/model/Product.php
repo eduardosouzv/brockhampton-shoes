@@ -88,4 +88,16 @@ class Product extends Connection
       "product deleted id" =>  $id,
     ];
   }
+
+  public function findByID($id)
+  {
+    $query = "SELECT * FROM products WHERE id = :id";
+
+    $result = Connection::prepare($query);
+    $result->bindParam(':id', $id);
+
+    $result->execute();
+    http_response_code(201);
+    return $result->fetchAll();
+  }
 }

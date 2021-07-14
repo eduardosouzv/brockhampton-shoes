@@ -68,4 +68,22 @@ class ProductController
       ];
     }
   }
+
+  function findByID($id)
+  {
+    try {
+      $product = new Product();
+
+      if (!isset($id)) {
+        http_response_code(404);
+        throw new Exception('id undefined');
+      }
+
+      return $product->findByID($id);
+    } catch (Exception $e) {
+      return [
+        "message" =>  $e->getMessage(),
+      ];
+    }
+  }
 }
