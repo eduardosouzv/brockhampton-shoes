@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="../../styles/global.css">
   <link rel="stylesheet" href="../../styles/pages/admin/products.css">
+  <link rel="stylesheet" href="../../styles/components/admin/modal_create_product.css">
 
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <title>Produtos | BROCKHAMPTON</title>
@@ -120,8 +121,55 @@
           </div>
         </div>
       </div>
+
+      <div class="new_product">
+        <button onclick="openModal()">Criar produto</button>
+      </div>
+
+      <div id="modal" style="visibility: hidden;">
+        <div class="overlay">
+          <div class="container">
+            <header>Novo produto</header>
+            <form action="#">
+              <div>
+                <label>Nome</label>
+                <input type="text">
+              </div>
+              <div>
+                <label>Descrição</label>
+                <input type="text">
+              </div>
+              <div>
+                <label>R$</label>
+                <input type="text" placeholder="">
+              </div>
+              <div>
+                <label>Tamanho</label>
+                <input type="text">
+              </div>
+              <div>
+                <button type="submit">Criar</button>
+              </div>
+            </form>
+
+            <button class="close_button" type="button" onclick="closeModal()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
+
+  <script>
+    function openModal() {
+      document.querySelector('#modal').style.visibility = 'visible';
+    }
+
+    function closeModal() {
+      document.querySelector('#modal').style.visibility = 'hidden';
+    }
+  </script>
 </body>
 
 </html>
