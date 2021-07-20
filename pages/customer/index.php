@@ -20,7 +20,7 @@
    <?php include "./components/customer/header.php"; ?>
    <main>
       <?php include "./components/customer/menu.php"; ?>
-
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
       <div class="carousel">
          <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "prevNextButtons": false,
             "pageDots": false, "freeScroll": true }'>
@@ -31,8 +31,6 @@
          </div>
       </div>
    </main>
-
-   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 
 </html>

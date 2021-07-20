@@ -38,3 +38,28 @@
   color: var(--text);
   font-family: Inter, sans-serif;
 }
+
+.page_container .new_product button {
+  background-color: #5cb85c;
+
+  cursor: pointer;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+
+  border: none;
+  border-radius: 7px;
+  padding: 13px;
+}
+
+.page_container .new_product button:hover {
+  transition: 0.3s;
+  filter: brightness(80%);
+}
+
+.page_container .new_product {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}

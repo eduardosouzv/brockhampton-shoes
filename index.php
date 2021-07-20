@@ -1,9 +1,9 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
+$request = $_SERVER['PATH_INFO'];
 
 switch ($request) {
     // customer routes
-  case '/':
+  case '':
     require './pages/customer/index.php';
     break;
   case '/shop':

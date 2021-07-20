@@ -25,26 +25,54 @@
                 <img src="./assets/products/shoe.jpg">
             </div>
             <div class="information">
-                <div class="name_shoe">
-                    <p>NIKE AIR MAX 97</p>
-                </div>
-                <div class="information_shoe">
-                    <li>MADE IN BRAZIL / FEITO NO BRASIL</li>
-                    <li>NIKE FEITO DE BORRACHA</li>
-                </div>
-                <div class="sizes_shoe">
-                    <p>TAMANHOS</p>
-                    <button>38</button>
-                    <button>38</button>
-                    <button>38</button>
-                    <button>38</button>
-                </div>
-                <div class="price_shoe">
-                    <p>PREÇO</p>
-                    <p>R$399,00</p>
-                </div>
-                <button onclick="" class="add_button">Adicionar ao Carrinho</button>
             </div>
         </div>
+        </div>
+        <script>
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
+
+            if (!params.id) {
+                window.location = "/shop";
+            }
+
+            showProductInformations(params.id);
+
+            function showProductInformations(id) {
+                const containerInfos = document.querySelector('.information');
+
+                fetch(`http://localhost:8000/api/app/routes/products/findByID.php?id=${id}`)
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((product) => {
+                        const productMap = product.map((item) => {
+                            return containerInfos.innerHTML = `
+                            <div class="name_shoe">
+                                <p>${item.product_name}</p>
+                            </div>
+                            <div class="information_shoe">
+                                <li>${item.description.replace(",", "<li>")}</li>
+                            </div>
+                            <div class="sizes_shoe">
+                                <p>TAMANHOS</p>
+                                <button>${item.sizes_id}</button>
+                            </div>
+                            <div class="price_shoe">
+                                <p>PREÇO</p>
+                                <p>R$${item.price}</p>
+                            </div>
+                            <button onclick="" class="add_button">Adicionar ao Carrinho</button>`
+                        })
+                    })
+                    .catch((error) => {
+                        return error;
+                    })
+            }
+
+            function buttonAddToCart() {
+                    
+            }
+        </script>
     </main>
 </body>
