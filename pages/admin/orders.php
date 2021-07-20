@@ -33,75 +33,12 @@
                 <div class="order">
                     <h1>Nº 1</h1>
                     <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
+                    <p class="status">PROCESSANDO</p>
                     <div class="buttons">
                         <i class="far fa-check-circle"></i>
                         <i class="fas fa-folder" id="look"></i>
                     </div>
                 </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                <div class="order">
-                    <h1>Nº 1</h1>
-                    <p>Eduardo Schulz</p>
-                    <p>PROCESSANDO</p>
-                    <div class="buttons">
-                        <i class="far fa-check-circle"></i>
-                        <i class="fas fa-folder" id="look"></i>
-                    </div>
-                </div>
-
-                
-
             </div>
         </main>
     </div>
@@ -139,11 +76,11 @@
         </div>
     </div>
     <script>
-        var modal = document.getElementById('overlay');
-        var body = document.getElementsByTagName('body');
-        var container = document.getElementsByClassName('page_container');
-        var btnClose = document.getElementById("close");
-        var btnOpen = document.getElementById("look");
+        const modal = document.getElementById('overlay');
+        const body = document.getElementsByTagName('body');
+        const container = document.getElementsByClassName('page_container');
+        const btnClose = document.getElementById("close");
+        const btnOpen = document.getElementById("look");
 
         btnOpen.onclick = function() {
             modal.className = "modal visuallyHidden";
