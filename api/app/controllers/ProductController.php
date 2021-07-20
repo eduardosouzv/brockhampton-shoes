@@ -33,7 +33,7 @@ class ProductController
     }
   }
 
-  function createProduct($product_name, $product_description, $product_price, $product_size)
+  function createProduct($product_name, $product_description, $product_price, $product_size, $img_base64)
   {
     try {
       $product = new Product();
@@ -42,13 +42,28 @@ class ProductController
         !isset($product_name) ||
         !isset($product_description) ||
         !isset($product_price) ||
-        !isset($product_size)
+        !isset($product_size) ||
+        !isset($img_base64)
       ) {
         http_response_code(404);
-        throw new Exception('invalid data');
+        throw new Exception('asdasd data');
       }
 
-      return $product->createProduct($product_name, $product_description, $product_price, $product_size);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
+      curl_setopt($ch, CURLOPT_POST, TRUE);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . CLIENT_ID_IMGUR));
+      curl_setopt($ch, CURLOPT_POSTFIELDS, array('image' => $img_base64));
+
+      $reply = curl_exec($ch);
+      curl_close($ch);
+
+      $reply = json_decode($reply);
+
+      $img_link = $reply->data->link;
+
+      return $product->createProduct($product_name, $product_description, $product_price, $product_size, $img_link);
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),

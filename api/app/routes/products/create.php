@@ -12,5 +12,6 @@ echo json_encode($productController->createProduct(
   $product_info["name"],
   $product_info["description"],
   $product_info["price"],
-  $product_info["size"]
+  $product_info["size"],
+  $product_info["img_base64"]
 ));

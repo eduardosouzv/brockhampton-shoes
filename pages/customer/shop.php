@@ -55,7 +55,7 @@
                     })
                     .then((products) => {
                         const productsMap = products.map((items) => {
-                            return `<div class="shoes" onClick="redirectToProduct(${items.id})"><img src="./assets/products/shoe.jpg"><p class="name_shoe">${items.product_name}</p><p class="price_shoe">R$${items.price}</p></div>`;
+                            return `<div class="shoes" onClick="redirectToProduct(${items.id})"><img src="${items.image_link}"><p class="name_shoe">${items.product_name}</p><p class="price_shoe">R$${items.price}</p></div>`;
                         })
                         containerItems.innerHTML = productsMap.join("");
                     })

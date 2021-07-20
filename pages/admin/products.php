@@ -40,63 +40,30 @@
       <div id="modal" style="visibility: hidden;">
         <div class="overlay">
           <div class="container">
-            <header>Novo produto</header>
+            <header id="header">Novo produto</header>
             <form action="#">
               <div>
                 <label>Nome</label>
-                <input class="name" type="text">
+                <input id="name" type="text">
               </div>
               <div>
                 <label>Descrição</label>
-                <input class="description" type="text">
+                <input id="description" type="text">
               </div>
               <div>
                 <label>R$</label>
-                <input class="price" type="text" placeholder="">
+                <input id="price" type="text">
               </div>
               <div>
                 <label>Tamanho</label>
-                <input class="sizes" type="text">
+                <input id="size" type="text">
               </div>
               <div>
-                <button type="submit" onclick="createProduct()">Criar</button>
-              </div>
-            </form>
-
-            <button class="close_button" type="button" onclick="closeModal()">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="new_product">
-        <button onclick="openModal()">Criar produto</button>
-      </div>
-
-      <div id="modal" style="visibility: hidden;">
-        <div class="overlay">
-          <div class="container">
-            <header>Novo produto</header>
-            <form action="#">
-              <div>
-                <label>Nome</label>
-                <input type="text">
+                <label>Imagem</label>
+                <input id="upload" type="file">
               </div>
               <div>
-                <label>Descrição</label>
-                <input type="text">
-              </div>
-              <div>
-                <label>R$</label>
-                <input type="text" placeholder="">
-              </div>
-              <div>
-                <label>Tamanho</label>
-                <input type="text">
-              </div>
-              <div>
-                <button type="submit">Criar</button>
+                <button onclick="createProduct()" type="submit">Criar</button>
               </div>
             </form>
 
@@ -110,30 +77,36 @@
   </div>
 
   <script>
-    window.onload = showProducts();
-    
+    window.onload = mountProducts();
+
     function openModal() {
       document.querySelector('#modal').style.visibility = 'visible';
+
+      document.querySelector('#header').innerHTML = 'Novo produto';
+      document.querySelector('#header').style.color = 'black';
     }
 
     function closeModal() {
       document.querySelector('#modal').style.visibility = 'hidden';
     }
 
-    function showProducts() {
+    function mountProducts() {
       const containerItems = document.querySelector('.product_list');
       fetch('http://localhost:8000/api/app/routes/products/findAll.php')
         .then((res) => {
           return res.json();
         })
         .then((products) => {
-          const productsMap = products.map((items) => {
-            return `<div class="product" id="${items.id}"><img src="../../assets/products/shoe.jpg" alt="tenis"><p>${items.product_name}</p><div class="actions"><i class="fas fa-edit fa-lg"></i><i class="fas fa-times fa-lg" onclick="deleteProduct(${items.id})"></i></div></div>`
-          })
-          containerItems.innerHTML = productsMap.join("");
-        })
-        .catch((error) => {
-          return error;
+          containerItems.innerHTML = products.map((items) => {
+            return `<div class="product" id="${items.id}">
+              <img src="${items.image_link}" alt="tenis">
+              <p>${items.product_name}</p>
+              <div class="actions">
+                <i class="fas fa-edit fa-lg"></i>
+                <i class="fas fa-times fa-lg" onclick="deleteProduct(${items.id})"></i>
+              </div>
+            </div>`
+          }).join('');
         })
     }
 
@@ -150,11 +123,64 @@
         })
     }
 
-    function createProduct() {
-      const name = document.querySelector('.name').value;
-      const description = document.querySelector('.description').value;
-      const sizes = document.querySelector('.sizes').value;
-      const price = document.querySelector('.price').value.replace(",", ".");
+    function encodeImageFileAsURL(element) {
+      return new Promise((resolve, reject) => {
+        let file = element.files[0];
+        let reader = new FileReader();
+        reader.onloadend = function() {
+          return resolve(reader.result.split(';base64,')[1])
+        }
+
+        reader.onerror = () => {
+          reject(reader.error)
+        }
+
+        reader.readAsDataURL(file);
+      })
+    }
+
+    function hasBlankFields(references) {
+      const inputValues = [];
+      references.map(ref => inputValues.push(document.querySelector(ref).value));
+      if (inputValues.includes('')) {
+        return true;
+      }
+      return false;
+    }
+
+    async function createProduct() {
+      document.querySelector('#header').style.color = 'black'
+      document.querySelector('#header').innerHTML = 'Criando...'
+
+      const inputReferences = ['#name', '#description', '#size', '#price'];
+      const inputValues = [];
+
+      if (hasBlankFields([...inputReferences, '#upload'])) {
+        document.querySelector('#header').style.color = 'red'
+        document.querySelector('#header').innerHTML = 'Campos em branco.'
+        return
+      }
+
+      inputReferences.map(ref => inputValues.push(document.querySelector(ref).value))
+      const img = document.querySelector('#upload')
+
+      const base64img = await encodeImageFileAsURL(img)
+
+      const [name, description, size, price, base64] = [...inputValues, base64img];
+
+      if (isNaN(parseFloat(price))) {
+        document.querySelector('#header').style.color = 'red'
+        document.querySelector('#header').innerHTML = 'Erro na criação'
+        return
+      }
+
+      const productData = {
+        name: name,
+        description: description,
+        price: parseFloat(price),
+        size: parseInt(size),
+        img_base64: base64
+      }
 
       fetch('http://localhost:8000/api/app/routes/products/create.php', {
           method: 'POST',
@@ -162,18 +188,16 @@
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=UTF-8'
           },
-          body: JSON.stringify({
-            product_name: name,
-            product_description: description,
-            product_price: price,
-            product_size: sizes,
-          })
+          body: JSON.stringify(productData)
         })
-        .then((res) => {
-          return res.json();
+        .then(() => {
+          document.querySelector('#header').style.color = 'green'
+          document.querySelector('#header').innerHTML = 'Produto criado'
+          return
         })
         .catch((error) => {
-          return console.log(error);
+          document.querySelector('#header').style.color = 'red'
+          document.querySelector('#header').innerHTML = 'Erro na criação'
         })
     }
   </script>

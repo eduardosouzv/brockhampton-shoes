@@ -20,18 +20,19 @@ class Product extends Connection
     return $product_size_id;
   }
 
-  public function createProduct($product_name, $product_description, $product_price, $product_size)
+  public function createProduct($product_name, $product_description, $product_price, $product_size, $img_link)
   {
     $product_size_id = self::getSizeIDByName($product_size);
 
-    $query = "INSERT INTO products (product_name, description,price, sizes_id)
-    VALUES (:product_name, :product_description, :product_price, :product_size)";
+    $query = "INSERT INTO products (product_name, description,price, sizes_id, image_link)
+    VALUES (:product_name, :product_description, :product_price, :product_size, :image_link)";
 
     $result = Connection::prepare($query);
     $result->bindParam(':product_name', $product_name);
     $result->bindParam(':product_description', $product_description);
     $result->bindParam(':product_price', $product_price);
     $result->bindParam(':product_size', $product_size_id);
+    $result->bindParam(':image_link', $img_link);
 
     $result->execute();
 
