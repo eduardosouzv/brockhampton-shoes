@@ -1,6 +1,6 @@
 # Enviroment
 .env
-api/database/config.php
+/api/database/config.php
 
 # Packages
 composer.phar
