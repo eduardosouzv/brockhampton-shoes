@@ -21,11 +21,7 @@
     <main>
         <?php include "./components/customer/menu.php"; ?>
         <div class="container">
-            <div class="image_shoe">
-                <img src="./assets/products/shoe.jpg">
-            </div>
-            <div class="information">
-            </div>
+
         </div>
         </div>
         <script>
@@ -39,31 +35,36 @@
             showProductInformations(params.id);
 
             function showProductInformations(id) {
-                const containerInfos = document.querySelector('.information');
+                const containerInfos = document.querySelector('.container');
 
                 fetch(`http://localhost:8000/api/app/routes/products/findByID.php?id=${id}`)
                     .then((res) => {
                         return res.json();
                     })
                     .then((product) => {
-                        const productMap = product.map((item) => {
-                            return containerInfos.innerHTML = `
-                            <div class="name_shoe">
-                                <p>${item.product_name}</p>
+                        console.log(product[0])
+                        return containerInfos.innerHTML = `
+                            <div class="image_shoe">
+                                <img src="${product[0].image_link}">
                             </div>
+                            <div class="information">
+                                <div class="name_shoe">
+                                    <p>${product[0].product_name}</p>
+                                </div>
                             <div class="information_shoe">
-                                <li>${item.description.replace(",", "<li>")}</li>
+                                <li>${product[0].description.replace(",", "<li>")}</li>
                             </div>
                             <div class="sizes_shoe">
                                 <p>TAMANHOS</p>
-                                <button>${item.sizes_id}</button>
+                                <button>${product[0].sizes_id}</button>
                             </div>
                             <div class="price_shoe">
                                 <p>PREÇO</p>
-                                <p>R$${item.price}</p>
+                                <p>R$${product[0].price}</p>
                             </div>
-                            <button onclick="" class="add_button">Adicionar ao Carrinho</button>`
-                        })
+                                <button onclick="" class="add_button">Adicionar ao Carrinho</button>
+                            </div>
+                           `
                     })
                     .catch((error) => {
                         return error;
@@ -71,7 +72,7 @@
             }
 
             function buttonAddToCart() {
-                    
+
             }
         </script>
     </main>
