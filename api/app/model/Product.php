@@ -100,10 +100,44 @@ class Product extends Connection
 
   public function findAll()
   {
-    $query = "SELECT * FROM products";
+    $query =
+      "SELECT p.id ,product_name, description, price, image_link, size_name 
+    FROM products_has_sizes phs 
+    INNER JOIN products p ON phs.products_id = p.id 
+    INNER JOIN sizes s ON phs.sizes_id = s.id
+    ORDER BY p.id ASC;";
     $all_products = Connection::prepare($query);
     $all_products->execute();
-    return $all_products->fetchAll();
+    $all_products = (array) $all_products->fetchAll();
+
+    if (!isset($all_products)) {
+      return [];
+    }
+
+    foreach ($all_products as $product) {
+      $products_id_filtered[$product->id][] = $product;
+    }
+
+    $mounted_products = [];
+    foreach ($products_id_filtered as $product) {
+      $sizes = [];
+
+      foreach ($product as $value) {
+        array_push($sizes, $value->size_name);
+        $mounted_product = [
+          "id" => $value->id,
+          "product_name" => $value->product_name,
+          "description" => $value->description,
+          "price" => $value->price,
+          "image_link" => $value->image_link,
+          "sizes" => $sizes
+        ];
+      }
+
+      array_push($mounted_products, $mounted_product);
+    }
+
+    return $mounted_products;
   }
 
   public function delete($id)
