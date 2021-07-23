@@ -76,21 +76,35 @@ class Product extends Connection
     ];
   }
 
-  public function editProduct($product_id, $product_name, $product_description, $product_price, $product_size)
+  public function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes)
   {
-    $product_size_id = self::getSizesIDByName($product_size);
+    $product_sizes_id = self::getSizesIDByName($product_sizes);
 
-    $query = "UPDATE products SET product_name = :product_name, description= :product_description, price= :product_price, sizes_id= :product_size_id
+    $delete_products_has_sizes = "DELETE FROM products_has_sizes WHERE products_id =" . $product_id;
+    $products_has_sizes = Connection::prepare($delete_products_has_sizes);
+    $products_has_sizes->execute();
+
+    $params_to_insert = '';
+    foreach ($product_sizes_id as $i => $size_id) {
+      if (sizeof($product_sizes_id) === $i + 1) {
+        $params_to_insert = $params_to_insert . '(' . intval($product_id) . ',' . intval($size_id) . ');';
+      } else {
+        $params_to_insert = $params_to_insert . '(' . intval($product_id) . ',' . intval($size_id) . '),';
+      }
+    }
+
+    $edit_products_has_sizes = "INSERT INTO products_has_sizes (products_id, sizes_id) VALUES " . $params_to_insert;
+    $products_has_sizes = Connection::prepare($edit_products_has_sizes);
+    $products_has_sizes->execute();
+
+    $edit_product = "UPDATE products SET product_name = :product_name, description= :product_description, price= :product_price
     WHERE id = :product_id;";
-
-    $result = Connection::prepare($query);
-    $result->bindParam(':product_name', $product_name);
-    $result->bindParam(':product_description', $product_description);
-    $result->bindParam(':product_price', $product_price);
-    $result->bindParam(':product_size_id', $product_size_id);
-    $result->bindParam(':product_id', $product_id);
-
-    $result->execute();
+    $query_product = Connection::prepare($edit_product);
+    $query_product->bindParam(':product_name', $product_name);
+    $query_product->bindParam(':product_description', $product_description);
+    $query_product->bindParam(':product_price', $product_price);
+    $query_product->bindParam(':product_id', $product_id);
+    $query_product->execute();
 
     http_response_code(201);
     return [

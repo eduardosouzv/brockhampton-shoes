@@ -9,7 +9,7 @@ class ProductController
     return $product->findAll();
   }
 
-  function editProduct($product_id, $product_name, $product_description, $product_price, $product_size)
+  function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes)
   {
     try {
       $product = new Product();
@@ -19,13 +19,13 @@ class ProductController
         !isset($product_name) ||
         !isset($product_description) ||
         !isset($product_price) ||
-        !isset($product_size)
+        !isset($product_sizes)
       ) {
         http_response_code(404);
         throw new Exception('invalid data');
       }
 
-      return $product->editProduct($product_id, $product_name, $product_description, $product_price, $product_size);
+      return $product->editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes);
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),
