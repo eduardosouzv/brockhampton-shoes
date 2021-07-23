@@ -157,13 +157,36 @@ class Product extends Connection
 
   public function findByID($id)
   {
-    $query = "SELECT * FROM products WHERE id = :id";
+    $query =
+      "SELECT p.id ,product_name, description, price, image_link, size_name FROM products_has_sizes phs 
+    INNER JOIN products p ON phs.products_id = p.id 
+    INNER JOIN sizes s ON phs.sizes_id = s.id
+    WHERE p.id = :id;";
+    $found_product_by_id = Connection::prepare($query);
+    $found_product_by_id->bindParam(':id', $id);
 
-    $result = Connection::prepare($query);
-    $result->bindParam(':id', $id);
+    $found_product_by_id->execute();
+    $found_product_by_id = (array) $found_product_by_id->fetchAll();
 
-    $result->execute();
-    http_response_code(201);
-    return $result->fetchAll();
+    if (!count($found_product_by_id)) {
+      http_response_code(404);
+      return [];
+    }
+
+    $sizes = [];
+
+    foreach ($found_product_by_id as $value) {
+      array_push($sizes, $value->size_name);
+      $mounted_product = [
+        "id" => $value->id,
+        "product_name" => $value->product_name,
+        "description" => $value->description,
+        "price" => $value->price,
+        "image_link" => $value->image_link,
+        "sizes" => $sizes
+      ];
+    }
+
+    return $mounted_product;
   }
 }
