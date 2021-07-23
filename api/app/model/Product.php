@@ -142,12 +142,16 @@ class Product extends Connection
 
   public function delete($id)
   {
-    $query = "DELETE FROM products WHERE id = :id";
+    $query_produts_has_sizes = "DELETE FROM products_has_sizes WHERE products_id = :id";
 
-    $result = Connection::prepare($query);
-    $result->bindParam(':id', $id);
+    $delete_produts_has_sizes = Connection::prepare($query_produts_has_sizes);
+    $delete_produts_has_sizes->bindParam(':id', $id);
+    $delete_produts_has_sizes->execute();
 
-    $result->execute();
+    $query_product = "DELETE FROM products WHERE id = :id";
+    $delete_produt = Connection::prepare($query_product);
+    $delete_produt->bindParam(':id', $id);
+    $delete_produt->execute();
 
     http_response_code(201);
     return [
