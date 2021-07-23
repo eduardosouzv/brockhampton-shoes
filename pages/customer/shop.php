@@ -30,17 +30,17 @@
                 <a href="#">Sportive</a>
                 <a href="#">Skate Shoes</a>
             </div>
-            <div class="container_products">
-                <div class="container_items">
-                </div>
-                <div class="container_pagination">
-                    <div class="pagination">
-                        <a href="#"><i class="fas fa-arrow-left"></i></a>
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+            <div class="content">
+                <div class="container_products">
+                    <div class="container_items">
                     </div>
+                </div>
+                <div class="pagination">
+                    <a href="#"><i class="fas fa-arrow-left"></i></a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
