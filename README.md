@@ -7,21 +7,28 @@ Projeto final do curso de ADS
 Requisitos de instalação
 
 - [PHP for Linux](https://computingforgeeks.com/how-to-install-php-on-ubuntu/)
-- [Composer](https://getcomposer.org/download/)
-
-Após devidas instalações, instale dependências
-
-```
-$ composer install
-```
 
 # Enviroment Variables
 
-Crie um arquivo na pasta raiz chamado `.env` e insira os seguintes dados:
+Crie um arquivo na pasta `api/database` chamado `config.php` e insira os seguintes dados:
 
 ```
-DB_HOST="my_host"
-DB_USER="my_user"
-DB_PASSWORD="my_password"
-DB_NAME="my_name"
+<?php
+
+define('DB_NAME', 'db-name');
+define('DB_HOST', 'db-host');
+define('DB_USER', 'your-user');
+define('DB_PASS', 'your-pass');
+define('DB_PORT', 'db-port');
+define('CLIENT_ID_IMGUR', 'imgur-client-id');
+
+?>
+```
+
+# Rodando o projeto
+
+Com as variaveis de ambiente e database configurados, precisamos iniciar o servidor local
+
+```
+php -S localhost:8000
 ```
