@@ -56,7 +56,7 @@
               </div>
               <div>
                 <label>Tamanho</label>
-                <input id="size" type="text">
+                <input placeholder="33,34,35" id="sizes" type="text">
               </div>
               <div>
                 <label>Imagem</label>
@@ -148,17 +148,22 @@
       return false;
     }
 
+    function generateErrorOnProductCreation(message) {
+      document.querySelector('#header').style.color = 'red';
+      document.querySelector('#header').innerHTML = message;
+    }
+
     async function createProduct() {
+      document.querySelector('form').addEventListener('submit', e => e.preventDefault());
+
       document.querySelector('#header').style.color = 'black'
       document.querySelector('#header').innerHTML = 'Criando...'
 
-      const inputReferences = ['#name', '#description', '#size', '#price'];
+      const inputReferences = ['#name', '#description', '#sizes', '#price'];
       const inputValues = [];
 
       if (hasBlankFields([...inputReferences, '#upload'])) {
-        document.querySelector('#header').style.color = 'red'
-        document.querySelector('#header').innerHTML = 'Campos em branco.'
-        return
+        return generateErrorOnProductCreation('Campos em branco.');
       }
 
       inputReferences.map(ref => inputValues.push(document.querySelector(ref).value))
@@ -166,19 +171,22 @@
 
       const base64img = await encodeImageFileAsURL(img)
 
-      const [name, description, size, price, base64] = [...inputValues, base64img];
+      const [name, description, sizes, price, base64] = [...inputValues, base64img];
 
       if (isNaN(parseFloat(price))) {
-        document.querySelector('#header').style.color = 'red'
-        document.querySelector('#header').innerHTML = 'Erro na criação'
+        generateErrorOnProductCreation('Erro na criação');
         return
       }
+
+      const formattedSizes = sizes.split(',');
+      const wrongSize = formattedSizes.find(s => isNaN(parseInt(s)));
+      wrongSize && generateErrorOnProductCreation('Tamanho invalido.');
 
       const productData = {
         name: name,
         description: description,
         price: parseFloat(price),
-        size: parseInt(size),
+        sizes: formattedSizes,
         img_base64: base64
       }
 
