@@ -180,7 +180,10 @@
 
       const formattedSizes = sizes.split(',');
       const wrongSize = formattedSizes.find(s => isNaN(parseInt(s)));
-      wrongSize && generateErrorOnProductCreation('Tamanho invalido.');
+
+      if (wrongSize) {
+        return generateErrorOnProductCreation('Tamanho invalido.');
+      }
 
       const productData = {
         name: name,
