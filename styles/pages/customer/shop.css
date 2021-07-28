@@ -33,7 +33,9 @@
 .container_items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
+  margin: 0 auto;
 }
 .container_items img {
   width: 100%;
@@ -62,12 +64,13 @@
 .pagination {
   display: flex;
   justify-content: center;
-  font-size: 15px;
+  font-size: 20px;
   margin: 25px 0;
   font-family: Inter, sans-serif;
-  gap: 10px;
+  gap: 20px;
 }
 .pagination a {
   text-decoration: none;
   color: var(--text);
+  cursor: pointer;
 }

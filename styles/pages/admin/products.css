@@ -32,6 +32,7 @@
 
 .page_container .product .actions i {
   color: var(--text);
+  cursor: pointer;
 }
 
 .page_container .product p {

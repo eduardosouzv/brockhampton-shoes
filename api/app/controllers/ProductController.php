@@ -51,6 +51,7 @@ class ProductController
 
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, 'https://api.imgur.com/3/image.json');
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       curl_setopt($ch, CURLOPT_POST, TRUE);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Client-ID ' . CLIENT_ID_IMGUR));
@@ -103,6 +104,24 @@ class ProductController
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),
+      ];
+    }
+  }
+
+  function findProductsWithLimit($page)
+  {
+    try {
+      $product = new Product();
+
+      if (!isset($page)) {
+        http_response_code(404);
+        throw new Exception('page undefined');
+      }
+
+      return $product->findProductsWithLimit($page);
+    } catch (Exception $e) {
+      return [
+        "message" => $e->getMessage(),
       ];
     }
   }
