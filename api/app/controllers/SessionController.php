@@ -55,4 +55,21 @@ class SessionController
       ];
     }
   }
+
+  function logoutSession($token)
+  {
+    try {
+      $session = new Session();
+
+      $session->excludeToken($token);
+
+      return [
+        "message" => "ok"
+      ];
+    } catch (Exception $e) {
+      return [
+        "message" =>  $e->getMessage(),
+      ];
+    }
+  }
 }
