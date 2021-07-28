@@ -50,4 +50,38 @@ class Session extends Connection
       "token" =>  $token,
     ];
   }
+
+  public function findDatesByToken($token)
+  {
+
+    $query_find_dates_by_token =
+      "SELECT generated_in, expires_in 
+      FROM sessions WHERE token = :token;";
+
+    $find_dates_by_token = Connection::prepare($query_find_dates_by_token);
+    $find_dates_by_token->bindParam(':token', $token);
+    $find_dates_by_token->execute();
+
+    $dates = (array) $find_dates_by_token->fetch();
+
+    return $dates["expires_in"];
+  }
+
+  public function excludeToken($token)
+  {
+    $query_exclude_token =
+      "UPDATE sessions 
+      SET token = NULL, 
+      generated_in = NULL,
+      expires_in = NULL
+      WHERE token = :token";
+
+    $exclude_token = Connection::prepare($query_exclude_token);
+    $exclude_token->bindParam(':token', $token);
+    $exclude_token->execute();
+
+    return [
+      "token_excluded" => $token
+    ];
+  }
 }
