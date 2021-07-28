@@ -207,4 +207,37 @@ class Product extends Connection
 
     return $mounted_product;
   }
+
+  public function findProductsWithLimit($page)
+  {
+    if (!isset($page)) {
+      $page = 1;
+    }
+
+    $items_per_page = 6;
+    $begin = ($page - 1) * $items_per_page;
+
+    $query = "SELECT * FROM products LIMIT " . $begin . ',' . $items_per_page;
+    $all_products_with_limit = Connection::prepare($query);
+    $all_products_with_limit->execute();
+    $result = (array) $all_products_with_limit->fetchAll();
+
+    $query_count = "SELECT * FROM products";
+    $count = Connection::prepare($query_count);
+    $count->execute();
+    $result_count = (array) $count->fetchAll();
+    $total_pages = ceil(count($result_count) / $items_per_page);
+
+    if (!count($result)) {
+      http_response_code(404);
+      return [];
+    }
+
+    $products = [
+      "total_pages" => $total_pages,
+      "products" => $result,
+    ];
+
+    return $products;
+  }
 }
