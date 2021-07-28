@@ -30,7 +30,6 @@ class Session extends Connection
       $update_session->execute();
 
       return [
-        "user_id" =>  $user_id,
         "token" =>  $token,
       ];
     }
