@@ -6,25 +6,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-  <link rel="icon" href="./assets/logo.png">
-
-  <link rel="stylesheet" href="./styles/global.css">
-
-  <link rel="stylesheet" href="./styles/pages/customer/login.css">
+  <link rel="stylesheet" href="/frontend/customer/styles/login.css">
   <title>Inicio | BROCKHAMPTON</title>
 </head>
 
 <body>
-  <?php include "./components/customer/header.php"; ?>
+  <?php include "./frontend/customer/components/header.php"; ?>
   <main>
-    <?php include "./components/customer/menu.php"; ?>
+    <?php include "./frontend/customer/components/menu.php"; ?>
 
     <div class="overlay" style="display: flex;">
       <div class="container">
         <div class="header">
-          <img src="./assets/logo.png" alt="logo">
+          <img src="/frontend/assets/logo.png" alt="logo">
         </div>
         <form>
           <div class="input_user">
@@ -53,7 +47,6 @@
 
   </main>
 
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 
 </html>

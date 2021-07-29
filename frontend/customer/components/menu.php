@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../styles/components/customer/menu.css">
+<link rel="stylesheet" href="/frontend/customer/styles/comp_menu.css">
 
 <div class="menu">
   <a href="/">Inicio</a>
