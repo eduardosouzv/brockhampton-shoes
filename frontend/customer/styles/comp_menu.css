@@ -9,8 +9,10 @@
   font-size: 16px;
 }
 
-.menu a {
+.menu a,
+span {
   text-decoration: none;
   font-family: Inter, sans-serif;
   color: black;
+  cursor: pointer;
 }

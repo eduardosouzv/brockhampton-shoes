@@ -54,16 +54,21 @@ class Session extends Connection
   {
 
     $query_find_dates_by_token =
-      "SELECT generated_in, expires_in 
+      "SELECT users_id ,generated_in, expires_in 
       FROM sessions WHERE token = :token;";
 
     $find_dates_by_token = Connection::prepare($query_find_dates_by_token);
     $find_dates_by_token->bindParam(':token', $token);
     $find_dates_by_token->execute();
+    $response = (array) $find_dates_by_token->fetch();
 
-    $dates = (array) $find_dates_by_token->fetch();
+    $expires_in = $response["expires_in"];
+    $user_id = $response["users_id"];
 
-    return $dates["expires_in"];
+    return [
+      "user_id" => $user_id,
+      "expiration_date" => $expires_in
+    ];
   }
 
   public function excludeToken($token)
