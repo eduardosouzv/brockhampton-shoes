@@ -48,6 +48,7 @@ class SessionController
       }
 
       return [
+        "is_admin" => $session_info["is_admin"],
         "user_id" => $session_info["user_id"]
       ];
     } catch (Exception $e) {

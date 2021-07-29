@@ -16,6 +16,20 @@ class Session extends Connection
 
     $found_user = (array) $verify_if_session_exists->fetchAll();
 
+    $query_verify_if_is_admin = "SELECT type FROM users WHERE id=:user_id";
+
+    $verify_if_is_admin = Connection::prepare($query_verify_if_is_admin);
+    $verify_if_is_admin->bindParam(':user_id', $user_id);
+    $verify_if_is_admin->execute();
+
+    $user_type = (array) $verify_if_is_admin->fetch();
+
+    if ($user_type["type"] === 'ADMIN') {
+      $is_admin = true;
+    } else {
+      $is_admin = false;
+    }
+
     if (sizeof($found_user)) {
       $query_update_session =
         "UPDATE sessions 
@@ -30,6 +44,7 @@ class Session extends Connection
       $update_session->execute();
 
       return [
+        "is_admin" =>  $is_admin,
         "token" =>  $token,
       ];
     }
@@ -65,7 +80,22 @@ class Session extends Connection
     $expires_in = $response["expires_in"];
     $user_id = $response["users_id"];
 
+    $query_verify_if_is_admin = "SELECT type FROM users WHERE id=:user_id";
+
+    $verify_if_is_admin = Connection::prepare($query_verify_if_is_admin);
+    $verify_if_is_admin->bindParam(':user_id', $user_id);
+    $verify_if_is_admin->execute();
+
+    $user_type = (array) $verify_if_is_admin->fetch();
+
+    if ($user_type["type"] === 'ADMIN') {
+      $is_admin = true;
+    } else {
+      $is_admin = false;
+    }
+
     return [
+      "is_admin" => $is_admin,
       "user_id" => $user_id,
       "expiration_date" => $expires_in
     ];

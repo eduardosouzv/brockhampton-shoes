@@ -12,8 +12,12 @@ async function isTokenValid() {
       body: JSON.stringify({ token }),
     });
 
-    const { user_id } = await response.json();
-    console.log(user_id);
+    const { user_id, is_admin } = await response.json();
+
+    if (window.location.pathname.startsWith('/admin') && !is_admin) {
+      window.location.href = '/';
+      return user_id;
+    }
 
     return user_id;
   } catch (error) {
