@@ -7,7 +7,7 @@
   </div>
 
   <div class="buttons">
-    <a href="/checkout">Carrinho</a>
+    <a href="/checkout" id="cart">Carrinho</a>
     <a href="/login" id="login">Login</a>
     <span onclick="logout()" id="logout">Sair</span>
   </div>
