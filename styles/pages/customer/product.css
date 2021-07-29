@@ -40,11 +40,20 @@
   text-decoration: none;
   border-radius: 5px;
 }
+.sizes_shoe {
+  display: flex;
+  flex-direction: column;
+}
+.all_sizes {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .sizes_shoe p {
   font-size: 20px;
   font-family: Inter, sans-serif;
 }
-.sizes_shoe button {
+.all_sizes button {
   background-color: var(--text);
   color: var(--white);
   width: 45px;
