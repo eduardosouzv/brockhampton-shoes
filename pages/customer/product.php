@@ -42,25 +42,28 @@
                         return res.json();
                     })
                     .then((product) => {
-                        console.log(product[0])
                         return containerInfos.innerHTML = `
                             <div class="image_shoe">
-                                <img src="${product[0].image_link}">
+                                <img src="${product.image_link}">
                             </div>
                             <div class="information">
                                 <div class="name_shoe">
-                                    <p>${product[0].product_name}</p>
+                                    <p>${product.product_name}</p>
                                 </div>
                             <div class="information_shoe">
-                                <li>${product[0].description.replace(",", "<li>")}</li>
+                                <li>${product.description.replace(",", "<li>")}</li>
                             </div>
                             <div class="sizes_shoe">
                                 <p>TAMANHOS</p>
-                                <button>${product[0].sizes_id}</button>
+                                <div class="all_sizes">
+                                    ${product.sizes.map((items) => {
+                                        return `<button>${items}</button>`
+                                    }).join('')}
+                                </div>
                             </div>
                             <div class="price_shoe">
                                 <p>PREÇO</p>
-                                <p>R$${product[0].price}</p>
+                                <p>R$${product.price}</p>
                             </div>
                                 <button onclick="" class="add_button">Adicionar ao Carrinho</button>
                             </div>
