@@ -1,5 +1,5 @@
 <script src="https://kit.fontawesome.com/4f9ae860b6.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../../styles/components/admin/menu.css">
+<link rel="stylesheet" href="/frontend/admin/styles/comp_menu.css">
 
 <div class="container">
   <div class="title">
