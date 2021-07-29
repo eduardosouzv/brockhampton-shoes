@@ -20,9 +20,14 @@ async function authenticateUser() {
         password,
       }),
     });
-    const { token } = await response.json();
+    const { token, is_admin } = await response.json();
 
     localStorage.setItem('token', token);
+
+    if (is_admin) {
+      window.location.href = '/admin/products';
+      return;
+    }
 
     window.location.href = '/shop';
   } catch (error) {
