@@ -54,6 +54,7 @@
   font-family: Inter, sans-serif;
 }
 .all_sizes button {
+  transition: 1s;
   background-color: var(--text);
   color: var(--white);
   width: 45px;
@@ -68,4 +69,9 @@
 .price_shoe {
   font-size: 20px;
   font-family: Inter, sans-serif;
+}
+
+.selected_size {
+  background-color: rgb(114, 114, 114) !important;
+  transition: 1s;
 }

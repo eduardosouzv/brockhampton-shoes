@@ -21,77 +21,6 @@
 
       <div class="inline_content">
         <div class="products">
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button onclick=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-
-          <div class="product_item">
-            <div class="image_product">
-              <img src="/frontend/assets/products/shoe.jpg">
-            </div>
-            <div class="information_product">
-              <p>AIR MAX 9999</p>
-              <p>R$ 999.99</p>
-              <button><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
         </div>
         <div class="cart_infos">
           <p>Total:</p>
@@ -100,4 +29,7 @@
         </div>
       </div>
     </div>
+
+    <script src="/frontend/customer/js/checkout.js"></script>
+    <script src="/frontend/customer/js/cart.js"></script>
 </body>
