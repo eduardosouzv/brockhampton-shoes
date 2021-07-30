@@ -42,7 +42,7 @@ function _mountProductElement(image, name, description, sizes, price) {
       </div>
 
         <button 
-        onclick="addProductToCart('${image}','${name}','${description}','${description}')" 
+        onclick="addProductToCart('${image}','${name}','${description}','${price}')" 
         class="add_button">Adicionar ao Carrinho</button>
     </div>`;
 }
