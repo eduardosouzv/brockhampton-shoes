@@ -2,51 +2,55 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
 if (!params.id) {
-  window.location = "/shop";
+  window.location = '/shop';
 }
 
-showProductInformations(params.id);
+(async () => {
+  const productContainer = document.querySelector('.container');
 
-function showProductInformations(id) {
-  const containerInfos = document.querySelector(".container");
+  const { image_link, product_name, description, sizes, price } = await (
+    await fetch(`${BASE_URL}/api/app/routes/products/findByID.php?id=${params.id}`)
+  ).json();
 
-  fetch(`http://localhost:8000/api/app/routes/products/findByID.php?id=${id}`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((product) => {
-      return (containerInfos.innerHTML = `
-                <div class="image_shoe">
-                    <img src="${product.image_link}">
-                </div>
-                <div class="information">
-                    <div class="name_shoe">
-                        <p>${product.product_name}</p>
-                    </div>
-                <div class="information_shoe">
-                    <li>${product.description.replace(",", "<li>")}</li>
-                </div>
-                <div class="sizes_shoe">
-                    <p>TAMANHOS</p>
-                    <div class="all_sizes">
-                        ${product.sizes
-                          .map((items) => {
-                            return `<button>${items}</button>`;
-                          })
-                          .join("")}
-                    </div>
-                </div>
-                <div class="price_shoe">
-                    <p>PREÇO</p>
-                    <p>R$${product.price}</p>
-                </div>
-                    <button onclick="" class="add_button">Adicionar ao Carrinho</button>
-                </div>
-               `);
-    })
-    .catch((error) => {
-      return error;
-    });
+  productContainer.innerHTML = _mountProductElement(image_link, product_name, description, sizes, price);
+})();
+
+function _mountProductElement(image, name, description, sizes, price) {
+  return `<div class="image_shoe">
+      <img src="${image}" id="img_link">
+    </div>
+
+    <div class="information">
+      <div class="name_shoe">
+        <p id="product_name">${name}</p>
+      </div>
+      
+    <div class="information_shoe">
+      <li>${description.replace(',', '<li>')}</li>
+    </div>
+
+    <div class="sizes_shoe">
+      <p>TAMANHOS</p>
+      <div class="all_sizes">
+          ${sizes.map((size) => `<button onclick="selectSize(${size})" value="${size}">${size}</button>`).join('')}
+      </div>
+    </div>
+
+      <div class="price_shoe">
+        <p>PREÇO</p>
+        <p>R$${price}</p>
+      </div>
+
+        <button 
+        onclick="addProductToCart('${image}','${name}','${description}','${description}')" 
+        class="add_button">Adicionar ao Carrinho</button>
+    </div>`;
 }
 
-function buttonAddToCart() {}
+function selectSize(size) {
+  const buttonSize = document.querySelector(`button[value="${size}"]`);
+
+  buttonSize.classList.contains('selected_size')
+    ? buttonSize.classList.remove('selected_size')
+    : buttonSize.classList.add('selected_size');
+}
