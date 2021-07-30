@@ -32,3 +32,11 @@ async function addProductToCart(image, name, description, price) {
 
   localStorage.setItem('cart', JSON.stringify(_parseToUnitProduct(id, image, name, description, sizes, price)));
 }
+
+function removeProductFromCart(id, size) {
+  let cart = JSON.parse(localStorage.getItem('cart'));
+
+  let index = cart.findIndex((p) => p.id === id && p.size === size);
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
