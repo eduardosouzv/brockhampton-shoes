@@ -26,9 +26,7 @@
         <a href="#">Skate Shoes</a>
       </div>
       <div class="content">
-        <div class="container_products">
-          <div class="container_items">
-          </div>
+        <div class="container_items">
         </div>
         <div class="pagination">
           <a id="previous" onclick="previous(params.page)"><i class="fas fa-arrow-left"></i></a>
