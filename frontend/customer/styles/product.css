@@ -1,10 +1,16 @@
 .container {
   display: flex;
-  gap: 140px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+
+  margin: 0.5vw auto;
+  padding: 5px;
   background-color: var(--bg-header);
-  height: 700px;
-  justify-content: center;
-  margin-top: 60px;
+  border-radius: 15px;
+
+  min-height: 70vh;
+  width: 70vw;
 }
 .information {
   display: flex;
@@ -17,8 +23,8 @@
   align-items: center;
 }
 .image_shoe img {
-  width: 500px;
-  height: 500px;
+  border-radius: 15px;
+  width: 30vw;
 }
 .name_shoe {
   font-size: 30px;
