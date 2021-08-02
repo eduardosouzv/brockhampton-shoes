@@ -13,5 +13,6 @@ echo json_encode($productController->editProduct(
   $product_info["name"],
   $product_info["description"],
   $product_info["price"],
-  $product_info["sizes"]
+  $product_info["sizes"],
+  $product_info["category"]
 ));

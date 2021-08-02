@@ -37,19 +37,37 @@ class Product extends Connection
 
     return $sizes_id;
   }
+  private static function getCategoriesIDByName($name)
+  {
+    $query = "SELECT * FROM categories WHERE category_name = :name";
+    $found_category = Connection::prepare($query);
+    $found_category->bindParam(':name', $name);
+    $found_category->execute();
+    $found_category = (array) $found_category->fetchAll()[0];
+    $product_category_id = $found_category["id"];
 
-  public function createProduct($product_name, $product_description, $product_price, $product_sizes, $img_link)
+    if (!isset($product_category_id)) {
+      http_response_code(404);
+      throw new Exception('category not found');
+    }
+
+    return $product_category_id;
+  }
+
+  public function createProduct($product_name, $product_description, $product_price, $product_sizes, $img_link, $product_category)
   {
     $product_sizes_id = self::getSizesIDByName($product_sizes);
+    $product_category_id = self::getCategoriesIDByName($product_category);
 
-    $query = "INSERT INTO products (product_name, description,price, image_link)
-    VALUES (:product_name, :product_description, :product_price, :image_link)";
+    $query = "INSERT INTO products (product_name, description, price, image_link, categories_id)
+    VALUES (:product_name, :product_description, :product_price, :image_link, :product_category)";
 
     $create_product = Connection::prepare($query);
     $create_product->bindParam(':product_name', $product_name);
     $create_product->bindParam(':product_description', $product_description);
     $create_product->bindParam(':product_price', $product_price);
     $create_product->bindParam(':image_link', $img_link);
+    $create_product->bindParam(':product_category', $product_category_id);
 
     $create_product->execute();
 
@@ -76,9 +94,10 @@ class Product extends Connection
     ];
   }
 
-  public function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes)
+  public function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes, $product_category)
   {
     $product_sizes_id = self::getSizesIDByName($product_sizes);
+    $product_category_id = self::getCategoriesIDByName($product_category);
 
     $delete_products_has_sizes = "DELETE FROM products_has_sizes WHERE products_id =" . $product_id;
     $products_has_sizes = Connection::prepare($delete_products_has_sizes);
@@ -97,13 +116,14 @@ class Product extends Connection
     $products_has_sizes = Connection::prepare($edit_products_has_sizes);
     $products_has_sizes->execute();
 
-    $edit_product = "UPDATE products SET product_name = :product_name, description= :product_description, price= :product_price
+    $edit_product = "UPDATE products SET product_name = :product_name, description = :product_description, price = :product_price, categories_id = :product_category
     WHERE id = :product_id;";
     $query_product = Connection::prepare($edit_product);
     $query_product->bindParam(':product_name', $product_name);
     $query_product->bindParam(':product_description', $product_description);
     $query_product->bindParam(':product_price', $product_price);
     $query_product->bindParam(':product_id', $product_id);
+    $query_product->bindParam(':product_category', $product_category_id);
     $query_product->execute();
 
     http_response_code(201);
@@ -175,6 +195,15 @@ class Product extends Connection
 
   public function findByID($id)
   {
+    $query_category_name = "SELECT category_name
+    FROM categories
+    INNER JOIN products ON (categories.id = products.categories_id)
+    WHERE products.id = :id;";
+    $found_category_name = Connection::prepare($query_category_name);
+    $found_category_name->bindParam(':id', $id);
+    $found_category_name->execute();
+    $found_category_name = (array) $found_category_name->fetch();
+
     $query =
       "SELECT p.id ,product_name, description, price, image_link, size_name FROM products_has_sizes phs 
     INNER JOIN products p ON phs.products_id = p.id 
@@ -182,7 +211,6 @@ class Product extends Connection
     WHERE p.id = :id;";
     $found_product_by_id = Connection::prepare($query);
     $found_product_by_id->bindParam(':id', $id);
-
     $found_product_by_id->execute();
     $found_product_by_id = (array) $found_product_by_id->fetchAll();
 
@@ -201,6 +229,7 @@ class Product extends Connection
         "description" => $value->description,
         "price" => $value->price,
         "image_link" => $value->image_link,
+        "category_name" => $found_category_name['category_name'],
         "sizes" => $sizes
       ];
     }
@@ -208,25 +237,37 @@ class Product extends Connection
     return $mounted_product;
   }
 
-  public function findProductsWithLimit($page)
+  public function findProductsWithLimit($category, $page)
   {
     if (!isset($page)) {
       $page = 1;
     }
 
+    $query = "SELECT * FROM products";
+    $query_count = "SELECT COUNT(*) AS pages FROM products";
     $items_per_page = 6;
     $begin = ($page - 1) * $items_per_page;
 
-    $query = "SELECT * FROM products LIMIT " . $begin . ',' . $items_per_page;
+    if (isset($category)) {
+      $query = $query . " WHERE categories_id = :category";
+      $query_count = $query_count . " WHERE categories_id = :category";
+    }
+
+    $query = $query . " LIMIT " . $begin . "," . $items_per_page;
     $all_products_with_limit = Connection::prepare($query);
+    if (isset($category)) {
+      $all_products_with_limit->bindParam(':category', $category);
+    }
     $all_products_with_limit->execute();
     $result = (array) $all_products_with_limit->fetchAll();
 
-    $query_count = "SELECT * FROM products";
     $count = Connection::prepare($query_count);
+    if (isset($category)) {
+      $count->bindParam(':category', $category);
+    }
     $count->execute();
-    $result_count = (array) $count->fetchAll();
-    $total_pages = ceil(count($result_count) / $items_per_page);
+    $result_count = (array) $count->fetch();
+    $total_pages = ceil($result_count['pages'] / $items_per_page);
 
     if (!count($result)) {
       http_response_code(404);
@@ -239,5 +280,15 @@ class Product extends Connection
     ];
 
     return $products;
+  }
+
+  public function categories()
+  {
+    $query_get_categorioes = "SELECT * FROM categories";
+    $get_categories = Connection::prepare($query_get_categorioes);
+    $get_categories->execute();
+    $result_get_categories = (array) $get_categories->fetchAll();
+
+    return $result_get_categories;
   }
 }

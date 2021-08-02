@@ -7,10 +7,10 @@ $url = $_SERVER['REQUEST_URI'];
 
 $query_params = parse_url($url, PHP_URL_QUERY);
 
-$page = explode("=", $query_params)[1];
+parse_str($query_params, $query_str);
 
 $productController = new ProductController();
 
 header('Content-Type: application/json');
 
-echo json_encode($productController->findProductsWithLimit($page));
+echo json_encode($productController->findProductsWithLimit($query_str["category"], $query_str["page"]));

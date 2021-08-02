@@ -9,7 +9,7 @@ class ProductController
     return $product->findAll();
   }
 
-  function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes)
+  function editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes, $product_category)
   {
     try {
       $product = new Product();
@@ -19,13 +19,14 @@ class ProductController
         !isset($product_name) ||
         !isset($product_description) ||
         !isset($product_price) ||
-        !isset($product_sizes)
+        !isset($product_sizes) ||
+        !isset($product_category)
       ) {
         http_response_code(404);
         throw new Exception('invalid data');
       }
 
-      return $product->editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes);
+      return $product->editProduct($product_id, $product_name, $product_description, $product_price, $product_sizes, $product_category);
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),
@@ -33,7 +34,7 @@ class ProductController
     }
   }
 
-  function createProduct($product_name, $product_description, $product_price, $product_sizes, $img_base64)
+  function createProduct($product_name, $product_description, $product_price, $product_sizes, $img_base64, $product_category)
   {
     try {
       $product = new Product();
@@ -43,7 +44,8 @@ class ProductController
         !isset($product_description) ||
         !isset($product_price) ||
         !isset($product_sizes) ||
-        !isset($img_base64)
+        !isset($img_base64) ||
+        !isset($product_category)
       ) {
         http_response_code(404);
         throw new Exception('asdasd data');
@@ -64,7 +66,7 @@ class ProductController
 
       $img_link = $reply->data->link;
 
-      return $product->createProduct($product_name, $product_description, $product_price, $product_sizes, $img_link);
+      return $product->createProduct($product_name, $product_description, $product_price, $product_sizes, $img_link, $product_category);
     } catch (Exception $e) {
       return [
         "message" =>  $e->getMessage(),
@@ -108,7 +110,7 @@ class ProductController
     }
   }
 
-  function findProductsWithLimit($page)
+  function findProductsWithLimit($category, $page)
   {
     try {
       $product = new Product();
@@ -118,11 +120,17 @@ class ProductController
         throw new Exception('page undefined');
       }
 
-      return $product->findProductsWithLimit($page);
+      return $product->findProductsWithLimit($category, $page);
     } catch (Exception $e) {
       return [
         "message" => $e->getMessage(),
       ];
     }
+  }
+
+  function categories()
+  {
+    $product = new Product();
+    return $product->categories();
   }
 }
