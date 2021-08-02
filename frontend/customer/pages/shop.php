@@ -18,12 +18,9 @@
     <div class="container">
       <div class="container_categories">
         <h2 class="categories_name">Categorias</h2>
-        <a href="#">Todos</a>
-        <a href="#">Masculino</a>
-        <a href="#">Feminino</a>
-        <a href="#">Hype Content</a>
-        <a href="#">Sportive</a>
-        <a href="#">Skate Shoes</a>
+        <a href="/shop">TODOS</a>
+        <div class="show_categories">
+        </div>
       </div>
       <div class="content">
         <div class="container_products">

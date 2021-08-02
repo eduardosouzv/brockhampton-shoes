@@ -45,6 +45,11 @@
                 <input id="description" type="text">
               </div>
               <div>
+                <label>Categoria</label>
+                <select id="category" class="select_categorie">
+                </select>
+              </div>
+              <div>
                 <label>R$</label>
                 <input id="price" type="text">
               </div>
