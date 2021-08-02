@@ -16,7 +16,7 @@
     <?php include "./frontend/customer/components/menu.php"; ?>
     <div class="container-checkout">
       <div>
-        <p class="name_cart">Seu Carrinho</p>
+        <span class="name_cart">Seu Carrinho</span>
       </div>
 
       <div class="inline_content">

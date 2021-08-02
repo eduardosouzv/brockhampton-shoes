@@ -39,4 +39,5 @@ function removeProductFromCart(id, size) {
   let index = cart.findIndex((p) => p.id === id && p.size === size);
   cart.splice(index, 1);
   localStorage.setItem('cart', JSON.stringify(cart));
+  location.reload();
 }

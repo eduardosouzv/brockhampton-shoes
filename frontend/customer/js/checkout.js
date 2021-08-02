@@ -19,6 +19,7 @@ function _mountProductElement(id, image, name, size, price) {
   </div>
   <div class="information_product">
     <p>${name}</p>
+    <p>Tamanho: <strong>${size}</strong></p>
     <p>R$ ${price}</p>
     <button onclick="removeProductFromCart('${id}', '${size}')"><i class="fas fa-trash-alt"></i></button>
   </div>
