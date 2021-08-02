@@ -19,5 +19,6 @@
     </div>
     </div>
     <script src="/frontend/customer/js/product.js"></script>
+    <script src="/frontend/customer/js/cart.js"></script>
   </main>
 </body>

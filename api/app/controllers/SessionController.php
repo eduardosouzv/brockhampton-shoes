@@ -17,7 +17,7 @@ class SessionController
       $find_user->bindParam(':username', $username);
       $find_user->execute();
 
-      $found_user = (array) $find_user->fetchAll()[0];
+      $found_user = (array) $find_user->fetch();
 
       if (!password_verify($password, $found_user["password"])) {
         http_response_code(401);
@@ -37,17 +37,19 @@ class SessionController
     try {
       $session = new Session();
 
-      $expiration_date = $session->findDatesByToken($token);
+      $session_info = $session->findDatesByToken($token);
+
       $now_date = date('Y-m-d H:i:s');
 
-      if ($now_date >= $expiration_date) {
+      if ($now_date >= $session_info["expiration_date"]) {
         $session->excludeToken($token);
         http_response_code(401);
         throw new Exception('invalid token');
       }
 
       return [
-        "message" => "ok"
+        "is_admin" => $session_info["is_admin"],
+        "user_id" => $session_info["user_id"]
       ];
     } catch (Exception $e) {
       return [

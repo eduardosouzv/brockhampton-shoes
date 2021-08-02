@@ -23,19 +23,19 @@
         <form>
           <div class="input_user">
             <label>Usuario</label>
-            <input type="text" />
+            <input id="user" type="text" />
           </div>
 
           <div class="input_password">
             <label>Senha</label>
-            <input type="password" />
+            <input id="password" type="password" />
           </div>
 
           <div class="footer_buttons">
             <a href="/register" class="create_account">
               Cadastre-se Aqui
             </a>
-            <button class="login_button">
+            <button onclick="authenticateUser()" class="login_button">
               Logar
             </button>
           </div>
@@ -47,6 +47,7 @@
 
   </main>
 
+  <script src="/frontend/customer/js/login.js"></script>
 </body>
 
 </html>

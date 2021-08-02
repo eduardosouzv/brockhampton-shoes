@@ -1,6 +1,7 @@
 <link rel="icon" href="/frontend/assets/logo.png">
 <link rel="stylesheet" href="/frontend/global/global.css">
 <script src="https://kit.fontawesome.com/4f9ae860b6.js" crossorigin="anonymous"></script>
+<script src="/frontend/global/env.js"></script>
 
 <?php
 $request = $_SERVER['PATH_INFO'];
