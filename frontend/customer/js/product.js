@@ -42,15 +42,21 @@ function _mountProductElement(image, name, description, sizes, price) {
       </div>
 
         <button 
-        onclick="addProductToCart('${image}','${name}','${description}','${price}')" 
+        onclick="putProductOnCart('${image}','${name}','${description}','${price}')" 
         class="add_button">Adicionar ao Carrinho</button>
     </div>`;
 }
 
 function selectSize(size) {
+  _clearSelectedSizes(size);
+
   const buttonSize = document.querySelector(`button[value="${size}"]`);
 
   buttonSize.classList.contains('selected_size')
     ? buttonSize.classList.remove('selected_size')
     : buttonSize.classList.add('selected_size');
+}
+
+function _clearSelectedSizes(size) {
+  document.querySelectorAll(`div[class="all_sizes"] > button`).forEach((e) => e.classList.remove('selected_size'));
 }

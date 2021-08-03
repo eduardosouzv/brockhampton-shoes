@@ -1,18 +1,46 @@
-(() => {
+(async () => {
   const productContainer = document.querySelector('.products');
-  const products = JSON.parse(localStorage.getItem('cart'));
+  const products = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (!products) {
+  if (!products.length || !(await isTokenValid())) {
     location.href = '/shop';
     return;
   }
 
   productContainer.innerHTML = products
-    .map((p) => _mountProductElement(p.id, p.image, p.name, p.size, p.price))
+    .map((p) => _mountProductElement(p.id, p.image, p.name, p.size, p.price, p.quantity))
     .join('');
 })();
 
-function _mountProductElement(id, image, name, size, price) {
+async function generateOrder() {
+  const token = localStorage.getItem('token');
+
+  const productsFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+
+  if (!token || !productsFromLocalStorage) {
+    location.href = '/shop';
+    return;
+  }
+
+  const products = productsFromLocalStorage.map((p) => {
+    return {
+      product_id: parseInt(p.id),
+      size: parseInt(p.size),
+      quantity: parseInt(p.quantity),
+    };
+  });
+
+  const response = await fetch(`http://localhost:8000/api/app/routes/orders/create.php`, {
+    method: 'POST',
+    body: JSON.stringify({ token, products }),
+  });
+
+  if (response.status === 401) {
+    location.href = '/login';
+  }
+}
+
+function _mountProductElement(id, image, name, size, price, quantity) {
   return `<div class="product_item">
   <div class="image_product">
     <img src="${image}">
@@ -21,7 +49,11 @@ function _mountProductElement(id, image, name, size, price) {
     <p>${name}</p>
     <p>Tamanho: <strong>${size}</strong></p>
     <p>R$ ${price}</p>
-    <button onclick="removeProductFromCart('${id}', '${size}')"><i class="fas fa-trash-alt"></i></button>
+    <p id="quantity-id-${id}${size}">Quant. ${quantity}</p>
+    <div>
+    <button onclick="changeQuantity('remove', '${id}', '${size}')"><i class="fas fa-minus fa-xs"></i></button>
+    <button onclick="changeQuantity('add', '${id}', '${size}')"><i class="fas fa-plus fa-xs"></i></button>
+    </div>
   </div>
 </div>
 `;

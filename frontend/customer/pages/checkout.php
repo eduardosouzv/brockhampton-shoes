@@ -23,9 +23,9 @@
         <div class="products">
         </div>
         <div class="cart_infos">
-          <p>Total:</p>
+          <p>Total: <span id="total">0,00</span></p>
           <p>Frete: GRÁTIS</p>
-          <button onclick="" class="finish_button">FINALIZAR COMPRA</button>
+          <button onclick="generateOrder()" class="finish_button">FINALIZAR COMPRA</button>
         </div>
       </div>
     </div>
