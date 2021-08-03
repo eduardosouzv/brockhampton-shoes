@@ -16,16 +16,16 @@
     <?php include "./frontend/customer/components/menu.php"; ?>
     <div class="container-checkout">
       <div>
-        <p class="name_cart">Seu Carrinho</p>
+        <span class="name_cart">Seu Carrinho</span>
       </div>
 
       <div class="inline_content">
         <div class="products">
         </div>
         <div class="cart_infos">
-          <p>Total:</p>
+          <p>Total: <span id="total">0,00</span></p>
           <p>Frete: GRÁTIS</p>
-          <button onclick="" class="finish_button">FINALIZAR COMPRA</button>
+          <button onclick="generateOrder()" class="finish_button">FINALIZAR COMPRA</button>
         </div>
       </div>
     </div>

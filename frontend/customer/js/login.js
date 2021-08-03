@@ -23,6 +23,7 @@ async function authenticateUser() {
     const { token, is_admin } = await response.json();
 
     localStorage.setItem('token', token);
+    localStorage.setItem('cart', JSON.stringify([]));
 
     if (is_admin) {
       window.location.href = '/admin/products';

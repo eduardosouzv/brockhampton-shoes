@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--bg-header);
-  height: 700px;
-  margin-top: 60px;
+  margin: 0 0 0 3vh 0;
   padding: 30px;
 }
 
@@ -13,7 +12,7 @@
   gap: 12px;
 
   overflow: auto;
-  height: 60vh ;
+  height: 60vh;
 }
 
 .container-checkout .product_item {
@@ -38,6 +37,7 @@
 .information_product {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   font-size: 18px;
   font-family: Inter, sans-serif;
   align-items: center;
@@ -56,7 +56,7 @@
 
 .inline_content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 16px;
 }
 
