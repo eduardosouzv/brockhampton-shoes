@@ -9,7 +9,7 @@ if (!params.id) {
   const productContainer = document.querySelector('.container');
 
   const { image_link, product_name, description, sizes, price } = await (
-    await fetch(`${BASE_URL}/api/app/routes/products/findByID.php?id=${params.id}`)
+    await fetch(`${BASE_URL}/products/findByID.php?id=${params.id}`)
   ).json();
 
   productContainer.innerHTML = _mountProductElement(image_link, product_name, description, sizes, price);

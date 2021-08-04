@@ -10,17 +10,13 @@ if (!params.page) {
 function next(page, category) {
   const num = parseInt(page);
 
-  fetch(
-    `http://localhost:8000/api/app/routes/products/findAllWithLimit.php?${
-      category ? 'category=' + category + '&' : ''
-    }page=${page}`
-  )
+  fetch(`${BASE_URL}/products/findAllWithLimit.php?${category ? 'category=' + category + '&' : ''}page=${page}`)
     .then((res) => {
       return res.json();
     })
     .then((products) => {
       if (num < products.total_pages) {
-        const url = `http://localhost:8000/shop?${category ? 'category=' + category + '&' : ''}page=${num + 1}`;
+        const url = `/shop?${category ? 'category=' + category + '&' : ''}page=${num + 1}`;
         window.location = url;
       }
     });
@@ -29,7 +25,7 @@ function next(page, category) {
 function previous(page, category) {
   const num = parseInt(page);
   if (num > 1) {
-    const url = `http://localhost:8000/shop?category=${category ? 'category=' + category + '&' : ''}page=${num - 1}`;
+    const url = `/shop?category=${category ? 'category=' + category + '&' : ''}page=${num - 1}`;
     window.location = url;
   }
 }
@@ -37,7 +33,7 @@ function previous(page, category) {
 function showCategories() {
   const containerCategories = document.querySelector('.show_categories');
 
-  fetch(`http://localhost:8000/api/app/routes/products/categories.php`)
+  fetch(`${BASE_URL}/products/categories.php`)
     .then((res) => {
       return res.json();
     })
@@ -51,11 +47,7 @@ function showCategories() {
 
 function showProducts(category, page) {
   const containerItems = document.querySelector('.container_items');
-  fetch(
-    `http://localhost:8000/api/app/routes/products/findAllWithLimit.php?${
-      category ? 'category=' + category + '&' : ''
-    }page=${page}`
-  )
+  fetch(`${BASE_URL}/products/findAllWithLimit.php?${category ? 'category=' + category + '&' : ''}page=${page}`)
     .then((res) => {
       return res.json();
     })
@@ -71,15 +63,15 @@ function showProducts(category, page) {
 }
 
 function redirectToProduct(id) {
-  const url = `http://localhost:8000/product?id=${id}`;
+  const url = `/product?id=${id}`;
   window.location = url;
 }
 
 function redirectTo(category) {
   if (!category) {
-    const url = `http://localhost:8000/shop?page=1`;
+    const url = `/shop?page=1`;
     window.location = url;
   }
-  const url = `http://localhost:8000/shop?category=${category}&page=1`;
+  const url = `/shop?category=${category}&page=1`;
   window.location = url;
 }

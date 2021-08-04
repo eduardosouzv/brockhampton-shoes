@@ -13,7 +13,7 @@ async function authenticateUser() {
   }
 
   try {
-    const response = await fetch(`${BASE_URL}/api/app/routes/sessions/generateSession.php`, {
+    const response = await fetch(`${BASE_URL}/sessions/generateSession.php`, {
       method: 'POST',
       body: JSON.stringify({
         user,
