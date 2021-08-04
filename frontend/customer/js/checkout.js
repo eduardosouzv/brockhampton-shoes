@@ -30,7 +30,7 @@ async function generateOrder() {
     };
   });
 
-  const response = await fetch(`http://localhost:8000/api/app/routes/orders/create.php`, {
+  const response = await fetch(`${BASE_URL}/orders/create.php`, {
     method: 'POST',
     body: JSON.stringify({ token, products }),
   });

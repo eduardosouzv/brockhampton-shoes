@@ -10,7 +10,7 @@ showCategoriesInSelect();
 function showCategoriesInSelect() {
   const containerSelect = document.querySelector('#category');
 
-  fetch(`http://localhost:8000/api/app/routes/products/categories.php`)
+  fetch(`${BASE_URL}/products/categories.php`)
     .then((res) => {
       return res.json();
     })
@@ -38,7 +38,7 @@ function openCreateProductModal() {
 }
 
 function openEditProductModal(id) {
-  fetch(`http://localhost:8000/api/app/routes/products/findByID.php?id=${id}`)
+  fetch(`${BASE_URL}/products/findByID.php?id=${id}`)
     .then((res) => {
       return res.json();
     })
@@ -79,7 +79,7 @@ function closeModal() {
 
 function mountProducts() {
   const containerItems = document.querySelector('.product_list');
-  fetch('http://localhost:8000/api/app/routes/products/findAll.php')
+  fetch(`${BASE_URL}/products/findAll.php`)
     .then((res) => {
       return res.json();
     })
@@ -100,7 +100,7 @@ function mountProducts() {
 }
 
 function deleteProduct(id) {
-  fetch(`http://localhost:8000/api/app/routes/products/delete.php?id=${id}`, {
+  fetch(`${BASE_URL}/products/delete.php?id=${id}`, {
     method: 'DELETE',
   })
     .then((res) => {
@@ -189,7 +189,7 @@ async function createProduct() {
     img_base64: base64,
   };
 
-  fetch('http://localhost:8000/api/app/routes/products/create.php', {
+  fetch(`${BASE_URL}/products/create.php`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -246,7 +246,7 @@ function editProduct(id) {
     sizes: formattedSizes,
   };
 
-  fetch('http://localhost:8000/api/app/routes/products/edit.php', {
+  fetch(`${BASE_URL}/products/edit.php`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

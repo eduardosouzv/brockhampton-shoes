@@ -23,7 +23,7 @@ function logout() {
     return;
   }
 
-  fetch(`${BASE_URL}/api/app/routes/sessions/logoutSession.php`, {
+  fetch(`${BASE_URL}/sessions/logoutSession.php`, {
     method: 'POST',
     body: JSON.stringify({ token }),
   }).then(() => location.reload());

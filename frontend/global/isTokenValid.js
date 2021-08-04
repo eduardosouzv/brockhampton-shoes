@@ -7,7 +7,7 @@ async function isTokenValid() {
   }
 
   try {
-    const response = await fetch(`${BASE_URL}/api/app/routes/sessions/validateSession.php`, {
+    const response = await fetch(`${BASE_URL}/sessions/validateSession.php`, {
       method: 'POST',
       body: JSON.stringify({ token }),
     });
