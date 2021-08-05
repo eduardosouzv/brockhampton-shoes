@@ -24,6 +24,7 @@ nav {
   color: var(--text);
   text-decoration: none;
   font-family: Inter, sans-serif;
+  cursor: pointer;
 }
 
 .buttons {
