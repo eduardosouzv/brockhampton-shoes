@@ -14,10 +14,8 @@
   <?php include "./frontend/customer/components/header.php"; ?>
   <main>
     <?php include "./frontend/customer/components/menu.php"; ?>
-    <div class="container">
+    <div class="container"></div>
 
-    </div>
-    </div>
     <script src="/frontend/customer/js/product.js"></script>
     <script src="/frontend/customer/js/cart.js"></script>
   </main>
