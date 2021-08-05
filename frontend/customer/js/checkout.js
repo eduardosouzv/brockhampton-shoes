@@ -38,6 +38,18 @@ async function generateOrder() {
   if (response.status === 401) {
     location.href = '/login';
   }
+
+  alertSucessCart();
+}
+
+function alertSucessCart() {
+  document.querySelector('#alert-sucess').style.visibility = 'visible';
+}
+
+function clearCart() {
+  localStorage.setItem('cart', JSON.stringify([]));
+  document.querySelector('#alert-sucess').style.visibility = 'hidden';
+  location.href = '/shop';
 }
 
 function _mountProductElement(id, image, name, size, price, quantity) {
