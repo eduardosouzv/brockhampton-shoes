@@ -15,10 +15,8 @@
   display: flex;
   background-color: var(--white);
   margin: auto;
-  padding: 20px;
+  padding: 5px 5px 20px 20px;
   border-radius: 5px;
-  max-width: 600px;
-  max-height: 600px;
   overflow: auto;
 }
 .content .order {
@@ -26,6 +24,8 @@
   flex-direction: column;
   font-family: Inter, sans-serif;
   font-size: 16px;
+  min-width: 600px;
+  max-height: 600px;
 }
 .content .order .information {
   display: flex;
