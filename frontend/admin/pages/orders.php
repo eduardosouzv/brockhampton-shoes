@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/frontend/admin/styles/orders.css">
+  <link rel="stylesheet" href="/frontend/admin/styles/modal_order_info.css">
 
   <title>Pedidos | BROCKHAMPTON</title>
 </head>
@@ -23,56 +24,18 @@
         </h1>
       </div>
 
-      <div class="orders_list">
-        <div class="order">
-          <h1>Nº 1</h1>
-          <p>Eduardo Schulz</p>
-          <p class="status">PROCESSANDO</p>
-          <div class="buttons">
-            <i class="far fa-check-circle"></i>
-            <i class="fas fa-folder" id="look"></i>
-          </div>
-        </div>
+      <div id="order_list" class="orders_list">
+
       </div>
 
     </main>
   </div>
 
-  <div id="overlay" class="modal hidden visuallyHidden">
-    <div class="content">
-      <div class="order">
-        <div class="close_button">
-          <button id="close" class="close">&times;</button>
-        </div>
-        <div class="information">
-          <h1>Pedido Nº 1</h1>
-          <h2>Nome:</h2>
-          <p>Eduardo Schulz</p>
-          <h2>Produtos:</h2>
-          <div class="products">
-            <div class="item">
-              <img src="/assets/products/shoe.jpg">
-              <p>AIRMAX 999</p>
-              <p>48</p>
-              <p>R$399,00</p>
-            </div>
-            <div class="item">
-              <img src="/assets/products/shoe.jpg">
-              <p>AIRMAX 999</p>
-              <p>48</p>
-              <p>R$399,00</p>
-            </div>
-          </div>
-          <h2>Endereço:</h2>
-          <p>Av. Marquês de Olinda, 460 - Costa e Silva, Joinville - SC, 89218-360</p>
-          <h2>Total:</h2>
-          <p>R$3.000</p>
-        </div>
-      </div>
-    </div>
+  <div id="modal" class="modal" style="visibility: hidden;">
   </div>
 
   <script src="/frontend/admin/js/orders.js"></script>
+  <script src="/frontend/admin/js/modal_order.js"></script>
 
 </body>
 
