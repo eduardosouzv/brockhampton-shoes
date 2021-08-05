@@ -19,7 +19,8 @@ nav {
   cursor: default;
 }
 
-.buttons a {
+.buttons a,
+.buttons span {
   color: var(--text);
   text-decoration: none;
   font-family: Inter, sans-serif;
