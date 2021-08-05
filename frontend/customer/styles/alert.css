@@ -1,0 +1,49 @@
+#alert-sucess .overlay {
+  background: #f2f3f5cc;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#alert-sucess .container {
+  background: #f0f0f0;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#alert-sucess .container .ok_button {
+  background: var(--text);
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  align-self: flex-end;
+}
+
+#alert-sucess .container .header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: Inter, sans-serif;
+}
