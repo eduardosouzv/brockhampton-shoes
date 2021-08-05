@@ -18,7 +18,7 @@
 
     <div id="alert-sucess" style="visibility: hidden;">
       <div class="overlay" style="display: flex;">
-        <div class="container">
+        <div class="container-alert">
           <div class="header">
             <i class="fas fa-check fa-7x" style="color: green;"></i>
             <span>Seu pedido foi criado !</span>

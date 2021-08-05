@@ -39,11 +39,13 @@ async function putProductOnCart(image, name, description, price) {
       });
 
       localStorage.setItem('cart', JSON.stringify(cart));
+      alertSucessCart();
       return;
     }
 
     cart[indexOfFoundProduct].quantity += 1;
     localStorage.setItem('cart', JSON.stringify(cart));
+    alertSucessCart();
     return;
   }
 
@@ -106,5 +108,9 @@ function _calculateTotal() {
     return acumulador + Number(valorAtual.price) * valorAtual.quantity;
   }, 0);
 
-  return total;
+  return total.toFixed(2);
+}
+
+function alertSucessCart() {
+  document.querySelector('#alert-sucess').style.visibility = 'visible';
 }

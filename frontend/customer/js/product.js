@@ -57,6 +57,10 @@ function selectSize(size) {
     : buttonSize.classList.add('selected_size');
 }
 
+function redirectToShop() {
+  location.href = '/shop';
+}
+
 function _clearSelectedSizes(size) {
   document.querySelectorAll(`div[class="all_sizes"] > button`).forEach((e) => e.classList.remove('selected_size'));
 }
