@@ -2,9 +2,15 @@
   const productContainer = document.querySelector('.products');
   const products = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (!products.length || !(await isTokenValid())) {
+  if (!(await isTokenValid())) {
     location.href = '/shop';
     return;
+  }
+
+  if (!products.length) {
+    console.log('adsad');
+    const title = document.querySelector('.name_cart');
+    title.innerHTML = 'Seu carrinho está vazio.';
   }
 
   productContainer.innerHTML = products
@@ -17,7 +23,9 @@ async function generateOrder() {
 
   const productsFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
 
-  if (!token || !productsFromLocalStorage) {
+  console.log(productsFromLocalStorage);
+
+  if (!token || !productsFromLocalStorage.length) {
     location.href = '/shop';
     return;
   }

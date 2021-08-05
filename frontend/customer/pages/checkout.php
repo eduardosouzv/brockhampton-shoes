@@ -34,7 +34,7 @@
 
     <div class="container-checkout">
       <div>
-        <span class="name_cart">Seu Carrinho</span>
+        <span class="name_cart">Seu carrinho</span>
       </div>
 
       <div class="inline_content">

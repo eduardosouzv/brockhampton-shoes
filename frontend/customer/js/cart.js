@@ -1,12 +1,18 @@
 (window.onload = () => {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  if (cart.length) {
+  if (cart.length && location.pathname === '/checkout') {
     document.querySelector('#total').innerHTML = _calculateTotal();
   }
 })();
 
-function putProductOnCart(image, name, description, price) {
+async function putProductOnCart(image, name, description, price) {
+  const token = await isTokenValid();
+
+  if (!token) {
+    location.href = '/login';
+  }
+
   const id = urlSearchParams.get('id');
   const selectedSize = document.querySelector('button[class="selected_size"]').value;
 
