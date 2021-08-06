@@ -15,6 +15,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  align-items: center;
 }
 .container_about .content_about p {
   text-align: justify;
@@ -25,10 +26,4 @@
 .container_about .image_shop {
   display: flex;
   justify-content: center;
-}
-.container_about .image_shop img {
-  border: 1px solid var(--bg-header);
-  border-radius: 15px;
-  padding: 5px;
-  box-shadow: 0 0 2px 1px rgba(0, 18, 44, 0.363);
 }

@@ -11,10 +11,7 @@
     <span>BROCKHAMPTON</span>
   </div>
   <div class="menu">
-    <a href="/admin/dashboard">
-      <i class="far fa-chart-bar"></i>
-      <span>Dashboard</span>
-    </a>
+
     <a href="/admin/products">
       <i class="fas fa-shopping-cart"></i>
       <span>Produtos</span>
@@ -22,6 +19,10 @@
     <a href="/admin/orders">
       <i class="fas fa-box-open"></i>
       <span>Pedidos</span>
+    </a>
+    <a href="/shop">
+      <i class="fas fa-users"></i>
+      <span>Pagina do cliente</span>
     </a>
   </div>
 </div>
