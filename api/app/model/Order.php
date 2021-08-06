@@ -32,6 +32,7 @@ class Order extends Connection
     $token_info->execute();
     $token_info = (array) $token_info->fetch();
 
+    date_default_timezone_set('America/Sao_Paulo');
     $now_date = date('Y-m-d H:i:s');
 
     if ($now_date >= $token_info['expires_in']) {

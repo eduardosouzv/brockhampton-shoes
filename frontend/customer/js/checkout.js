@@ -14,7 +14,7 @@
   }
 
   productContainer.innerHTML = products
-    .map((p) => _mountProductElement(p.id, p.image, p.name, p.size, p.price, p.quantity))
+    .map(p => _mountProductElement(p.id, p.image, p.name, p.size, p.price, p.quantity))
     .join('');
 })();
 
@@ -30,7 +30,7 @@ async function generateOrder() {
     return;
   }
 
-  const products = productsFromLocalStorage.map((p) => {
+  const products = productsFromLocalStorage.map(p => {
     return {
       product_id: parseInt(p.id),
       size: parseInt(p.size),
@@ -38,16 +38,12 @@ async function generateOrder() {
     };
   });
 
-  const response = await fetch(`${BASE_URL}/orders/create.php`, {
+  fetch(`${BASE_URL}/orders/create.php`, {
     method: 'POST',
     body: JSON.stringify({ token, products }),
-  });
-
-  if (response.status === 401) {
-    location.href = '/login';
-  }
-
-  alertSucessCart();
+  })
+    .then(res => alertSucessCart())
+    .catch(err => (location.href = '/login'));
 }
 
 function alertSucessCart() {

@@ -6,10 +6,6 @@ class SessionController
   function generateSession($username, $password)
   {
     try {
-      $timezone = "SET time_zone='America/Sao_Paulo'";
-      $set_timezone = Connection::prepare($timezone);
-      $set_timezone->execute();
-
       $session = new Session();
 
       $query_find_user = "SELECT id, password FROM users WHERE username=:username";
@@ -39,6 +35,7 @@ class SessionController
 
       $session_info = $session->findDatesByToken($token);
 
+      date_default_timezone_set('America/Sao_Paulo');
       $now_date = date('Y-m-d H:i:s');
 
       if ($now_date >= $session_info["expiration_date"]) {
