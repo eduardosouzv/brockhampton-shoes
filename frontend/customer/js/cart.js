@@ -11,6 +11,7 @@ async function putProductOnCart(image, name, description, price) {
 
   if (!token) {
     location.href = '/login';
+    return;
   }
 
   const id = urlSearchParams.get('id');
